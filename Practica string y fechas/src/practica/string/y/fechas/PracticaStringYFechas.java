@@ -9,7 +9,7 @@ package practica.string.y.fechas;
  *
  * @author 1gdaw07
  */
-
+import javax.swing.JOptionPane;
 public class PracticaStringYFechas {
 
     /**
@@ -18,8 +18,16 @@ public class PracticaStringYFechas {
     
     public static void main(String[] args) {
         // TODO code application logic here
-        
-        
+        int c=0;        
+        String mensaje=JOptionPane.showInputDialog("Introdice una palabra");
+        for (int x=0; x <mensaje.length();x++)
+        {
+            if (mensaje.charAt(x)=='a'||mensaje.charAt(x)=='e'||mensaje.charAt(x)=='i'||mensaje.charAt(x)=='o'||mensaje.charAt(x)=='u')
+            {
+                c++;
+            }
+        }
+        JOptionPane.showMessageDialog(null, c +" vocales");
     }
     
 }
