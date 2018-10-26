@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package capitulo.pkg3.ejercicio.pkg5;
+package capitulo.pkg3.ejercicio.pkg6;
 
 /**
  *
@@ -12,7 +12,7 @@ package capitulo.pkg3.ejercicio.pkg5;
 import javax.swing.JOptionPane;
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
-public class Capitulo3Ejercicio5 {
+public class Capitulo3Ejercicio6 {
 
     /**
      * @param args the command line arguments
@@ -25,11 +25,12 @@ public class Capitulo3Ejercicio5 {
             try
             {
                 Calendar fechaUno = Calendar.getInstance();                
-                String FechaString=JOptionPane.showInputDialog("inserta la fecha dd/MM/yy");                
-                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
+                String FechaString=JOptionPane.showInputDialog("inserta la fecha dd/MM");                
+                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM");
                 fechaUno.setTime(formatter.parse(FechaString));
-                fechaUno.add(Calendar.DAY_OF_YEAR,100);                
-                JOptionPane.showMessageDialog(null,"La fecha es "+fechaUno.getTime());
+                Calendar IPrimavera = Calendar.getInstance();
+                IPrimavera.set(0000,1,1);
+                JOptionPane.showMessageDialog(null,IPrimavera.getTime());                
                 error=false;
             }
             catch(Exception e)
