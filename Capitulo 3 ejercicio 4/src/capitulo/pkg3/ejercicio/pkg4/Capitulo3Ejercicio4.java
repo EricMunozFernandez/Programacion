@@ -25,18 +25,18 @@ public class Capitulo3Ejercicio4 {
         try 
             {
                 // TODO code application logic here
-                //para calendar es Calendar fecha Uno=Calendar.getInstance(); antes de todo lo mismo que con Date
+                //para calendar es Calendar fechaUno=Calendar.getInstance(); antes de todo lo mismo que con Date
                 //para localDate DateTimeFormatter formatter=DateTimeFormatter.ofPattern("dd/MM/yy");
                 String fechaString = JOptionPane.showInputDialog ("Teclea una fecha dd/MM/yy");
                 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
                 Date fechaUno=formatter.parse(fechaString);
-                //Para Calendar fechaUno.setTime(formatter.parse(fechaString);
+                //Para Calendar fechaUno.setTime(formatter.parse(fechaString));
                 //Para LocalDate LocalDate fechaUno=LocalDate.parse(fechaString,formatter);
                 fechaString=JOptionPane.showInputDialog ("Teclea una fecha dd/MM/yy");
                 SimpleDateFormat formatterDos = new SimpleDateFormat ("dd/MM/yy");
                 Date fechaDos=formatterDos.parse(fechaString);
                 long milisegundos=fechaUno.getTime()-fechaDos.getTime();
-                //En Calendar es getTimeInMillis()
+                //En Calendar es getTimeInMillis();
                 //Para LocalDate Period period=Period.between(fechaUno,fechaDos);
                 long dias=milisegundos/86400000;
                 JOptionPane.showMessageDialog(null,"La diferencia de las dos fechas es de "+dias+" dias");
