@@ -27,7 +27,7 @@ public class Capitulo3Ejercicio5 {
                 Calendar fechaUno = Calendar.getInstance();                
                 String FechaString=JOptionPane.showInputDialog("inserta la fecha dd/MM/yy");                
                 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
-                fechaUno.setTime(formatter.parse(FechaString));
+                fechaUno.setTime(formatter.parse(FechaString));//para pasar de Date a calendar Calendar nombre=Calendar.getInstance(); Calendar.setTime(nombreDelDate);
                 fechaUno.add(Calendar.DAY_OF_YEAR,100);                
                 JOptionPane.showMessageDialog(null,"La fecha es "+fechaUno.getTime());
                 error=false;

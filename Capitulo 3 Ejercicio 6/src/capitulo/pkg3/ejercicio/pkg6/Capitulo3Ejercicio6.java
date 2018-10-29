@@ -25,12 +25,43 @@ public class Capitulo3Ejercicio6 {
             try
             {
                 Calendar fechaUno = Calendar.getInstance();                
-                String FechaString=JOptionPane.showInputDialog("inserta la fecha dd/MM");                
-                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM");
-                fechaUno.setTime(formatter.parse(FechaString));
-                Calendar IPrimavera = Calendar.getInstance();
-                IPrimavera.set(0000,1,1);
-                JOptionPane.showMessageDialog(null,IPrimavera.getTime());                
+                String FechaString=JOptionPane.showInputDialog("inserta la fecha MM/dd");                
+                SimpleDateFormat formatter = new SimpleDateFormat("MM/dd");
+                fechaUno.setTime(formatter.parse(FechaString));   
+                
+                final Calendar IPrimavera = Calendar.getInstance();
+                IPrimavera.set(1970,2,21);
+                final Calendar IVerano = Calendar.getInstance();
+                IVerano.set(1970,5,21);
+                final Calendar IOtoño = Calendar.getInstance();
+                IOtoño.set(1970,8,22);
+                final Calendar IInvierno = Calendar.getInstance();
+                IInvierno.set(1970,11,21);
+                
+                if(fechaUno.after(IPrimavera)&&fechaUno.before(IVerano))
+                {
+                 JOptionPane.showMessageDialog(null,"Primavera");
+                }
+                else
+                {
+                    if(fechaUno.after(IVerano)&&fechaUno.before(IOtoño))
+                    {
+                        JOptionPane.showMessageDialog(null,"Verano");
+                    }
+                    else
+                    {
+                        if(fechaUno.after(IOtoño)&&fechaUno.before(IInvierno))
+                        {
+                            JOptionPane.showMessageDialog(null,"Otoño");
+                        }
+                        else
+                        {
+                            
+                            JOptionPane.showMessageDialog(null,"Invierno");
+                            
+                        }
+                    }
+                }
                 error=false;
             }
             catch(Exception e)
