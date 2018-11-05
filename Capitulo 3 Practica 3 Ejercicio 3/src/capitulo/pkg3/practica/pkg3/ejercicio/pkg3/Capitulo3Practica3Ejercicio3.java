@@ -18,6 +18,7 @@ public class Capitulo3Practica3Ejercicio3 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        int Opcion;
         try
         {
             boolean error=false;
@@ -25,7 +26,7 @@ public class Capitulo3Practica3Ejercicio3 {
             {
                 try
                 {                   
-                    int Opcion=Integer.parseInt(JOptionPane.showInputDialog("nº1 Sumar dos numeros. \nnº2 Restar dos numeros. \nnº3 Visualizar la tabla de multiplicar de un numero. \nnº4 Visualizar el cociente y el resto de una division. \nnº5 Salir del programa."));                   
+                    Opcion=Integer.parseInt(JOptionPane.showInputDialog("nº1 Sumar dos numeros. \nnº2 Restar dos numeros. \nnº3 Visualizar la tabla de multiplicar de un numero. \nnº4 Visualizar el cociente y el resto de una division. \nnº5 Salir del programa."));                   
                         switch(Opcion)
                         {
                             case 1:
@@ -59,7 +60,7 @@ public class Capitulo3Practica3Ejercicio3 {
                             }
                         }                                          
                 }
-                catch(NumberFormatException e)
+                catch(NumberFormatException |NullPointerException| ArithmeticException e)
                 {
                     JOptionPane.showMessageDialog(null,"Escribe un numero");
                     error=true;
@@ -96,11 +97,11 @@ public class Capitulo3Practica3Ejercicio3 {
     {
         int numero=Integer.parseInt(JOptionPane.showInputDialog("introduce el numero a multiplicar"));
         int c=0,multi;
-        String serie=" ";
+        String serie="";
         while (c<11)
         {
             multi=numero*c;
-            serie=serie+multi+" ";            
+            serie=serie+numero+"x"+c+"="+multi+"\n";            
             c++;
         }
         JOptionPane.showMessageDialog(null,serie);
@@ -114,6 +115,4 @@ public class Capitulo3Practica3Ejercicio3 {
         resto=numero%divisor;
         JOptionPane.showMessageDialog(null,"la division es "+div+" el resto es "+resto);
     }
-
-
 }
