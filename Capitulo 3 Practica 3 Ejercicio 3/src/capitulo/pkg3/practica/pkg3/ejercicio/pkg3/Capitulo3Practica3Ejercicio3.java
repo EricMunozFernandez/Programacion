@@ -99,4 +99,16 @@ public class Capitulo3Practica3Ejercicio3 {
         }
         JOptionPane.showMessageDialog(null,serie);
     }
+<<<<<<< Updated upstream
+=======
+    public static void division() throws Exception
+    {
+        int numero=Integer.parseInt(JOptionPane.showInputDialog("introduce el numero a dividir"));
+        int divisor=Integer.parseInt(JOptionPane.showInputDialog("introduce el numero divisor"));
+        int resto, div;
+        div=numero/divisor;
+        resto=numero%divisor;
+        JOptionPane.showMessageDialog(null,"la division es "+div+" el resto es "+resto);
+    }
+>>>>>>> Stashed changes
 }
