@@ -18,64 +18,72 @@ public class Capitulo3Practica3Ejercicio3 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        boolean error=false;
-        do
+        try
         {
-            try
+            boolean error=false;
+            do
             {
-                int Opcion=Integer.parseInt(JOptionPane.showInputDialog("nº1 Sumar dos numeros. \nnº2 Restar dos numeros. \nnº3 Visualizar la tabla de multiplicar de un numero. \nnº4 Visualizar el cociente y el resto de una division. \nnº5 Salir del programa."));
-                switch(Opcion)
-                {
-                    case 1:
-                    {
-                        suma();
-                        break;
-                    }
-                    case 2:
-                    {
-                        resta();
-                        break;
-                    }
-                    case 3:
-                    {
-                        multi();
-                        break;
-                    } 
-                    case 4:
-                    {
-                        
-                        break;
-                    }
-                    case 5:
-                    {
-                        error=false;
-                        break;
-                    }
+                try
+                {                   
+                    int Opcion=Integer.parseInt(JOptionPane.showInputDialog("nº1 Sumar dos numeros. \nnº2 Restar dos numeros. \nnº3 Visualizar la tabla de multiplicar de un numero. \nnº4 Visualizar el cociente y el resto de una division. \nnº5 Salir del programa."));                   
+                        switch(Opcion)
+                        {
+                            case 1:
+                            {
+                                suma();
+                                error=true;
+                                break;
+                            }
+                            case 2:
+                            {
+                                resta();
+                                error=true;
+                                break;
+                            }
+                            case 3:
+                            {
+                                multi();
+                                error=true;
+                                break;
+                            } 
+                            case 4:
+                            {
+                                division();
+                                error=true;
+                                break;
+                            }
+                            case 5:
+                            {
+                                error=false;
+                                break;
+                            }
+                        }                                          
                 }
-                error=false;   
+                catch(NumberFormatException e)
+                {
+                    JOptionPane.showMessageDialog(null,"Escribe un numero");
+                    error=true;
+                }
+                catch(Exception e)
+                {
+                    JOptionPane.showMessageDialog(null,"Error");
+                    error=true;
+                }
+            
             }
-            catch(NumberFormatException e)
-            {
-                JOptionPane.showMessageDialog(null,"La nota es un numero");   
-            }
-            catch(Exception e)
-            {
-                JOptionPane.showMessageDialog(null,"Error");
-                error=true;
-            }
-            finally
+            while(error==true);
+        }
+        finally
             {
                 JOptionPane.showMessageDialog(null,"FIN");
             }
-        }
-        while(error==true);
     }
     public static void suma() throws Exception
     {
         int n1=Integer.parseInt(JOptionPane.showInputDialog("inserta el numero 1 para sumar"));
         int n2=Integer.parseInt(JOptionPane.showInputDialog("inserta el numero 2 para sumar"));
         int suma=n1+n2;
-        JOptionPane.showMessageDialog(null,"La suma es "+suma);
+        JOptionPane.showMessageDialog(null,"La suma es "+suma);        
     }
     public static void resta() throws Exception
     {
@@ -87,16 +95,23 @@ public class Capitulo3Practica3Ejercicio3 {
     public static void multi() throws Exception
     {
         int numero=Integer.parseInt(JOptionPane.showInputDialog("introduce el numero a multiplicar"));
-        int b=1,c=0,multi;
-        String serie=numero+" "+b+" ";
-        while (c<10)
+        int c=0,multi;
+        String serie=" ";
+        while (c<11)
         {
             multi=numero*c;
-            serie=serie+multi+" ";
-            numero=multi;
-            b++;
+            serie=serie+multi+" ";            
             c++;
         }
         JOptionPane.showMessageDialog(null,serie);
+    }
+    public static void division() throws Exception
+    {
+        int numero=Integer.parseInt(JOptionPane.showInputDialog("introduce el numero a dividir"));
+        int divisor=Integer.parseInt(JOptionPane.showInputDialog("introduce el numero divisor"));
+        int resto=0, div;
+        div=numero/divisor;
+        resto=numero%divisor;
+        JOptionPane.showMessageDialog(null,"la division es "+div+" el resto es "+resto);
     }
 }
