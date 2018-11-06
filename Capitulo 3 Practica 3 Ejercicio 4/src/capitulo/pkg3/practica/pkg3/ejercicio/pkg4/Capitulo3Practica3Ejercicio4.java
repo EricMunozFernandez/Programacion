@@ -15,12 +15,19 @@ public class Capitulo3Practica3Ejercicio4 {
             do
             {
                 try
-                {                   
+                {    
+                    double mediaGlobal;
+                    int contador=0;       
+                    nombre=JOptionPane.showInputDialog("Inserta nombre alumno");   
                     do
-                    {
-                        datos();
+                    {                        
+                        mediaGlobal=datos();                       
+                        contador++;
+                        nombre=JOptionPane.showInputDialog("Inserta nombre alumno");
                     }
-                    while(nombre.equalsIgnoreCase("FIN"));
+                    while(nombre.compareToIgnoreCase("fin")!=0);
+                                            
+                    JOptionPane.showMessageDialog(null,"La nota media de todos los alumnos es "+(mediaGlobal/contador));                    
                 }
                 catch(NumberFormatException |NullPointerException| ArithmeticException e)
                 {
@@ -30,6 +37,7 @@ public class Capitulo3Practica3Ejercicio4 {
                 catch(OpcionNoValida e)
                 {
                     JOptionPane.showMessageDialog(null,"La nota no puede ser menor que 0 o mayor que 10");
+                    correcto=false;
                 }
                 catch(Exception e)
                 {
@@ -45,23 +53,24 @@ public class Capitulo3Practica3Ejercicio4 {
                 JOptionPane.showMessageDialog(null,"FIN");
             }
     }    
-    public static int datos() throws OpcionNoValida
-    {
-        nombre=JOptionPane.showInputDialog("Inserta nombre alumno");
-        int nota;
-        int suma=0;
-        for(int c=0;c>=6;c++)
+    public static double datos() throws OpcionNoValida
+    {        
+        float nota;        
+        float suma=0;
+        for(int c=1;c<=6;c++)
         {
-        nota=Integer.parseInt(JOptionPane.showInputDialog("instroduce nota de la asignatura "+c));
+        nota=Float.parseFloat(JOptionPane.showInputDialog("instroduce nota de la asignatura "+c));
             if(nota<0||nota>10)
             {
                 throw new OpcionNoValida();//excepcion creada por nosotros                
             }            
         suma=suma+nota;        
         }        
-        int media=suma/6;        
+        double media=suma/6;        
         JOptionPane.showMessageDialog(null,"El alumno "+nombre+" ha sacado de media "+media);
-        return(media);            
+        double mediaGlobal=0;
+        mediaGlobal=mediaGlobal+media;        
+        return(mediaGlobal);            
     }
 }
 
