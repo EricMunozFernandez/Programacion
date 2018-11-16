@@ -19,7 +19,21 @@ public class Capitulo4Practica1Ejercicio3 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int [][]litros=new int[2][10];        
+        int [][]litros=new int[12][2];
+        int []sumaDias=new int [12];
+        String []meses=new String[12]; 
+        meses[0]="enero";
+        meses[1]="febrero";
+        meses[2]="marzo";
+        meses[3]="abril";
+        meses[4]="mayo";
+        meses[5]="junio";
+        meses[6]="julio";
+        meses[7]="agosto";
+        meses[8]="septiembre";
+        meses[9]="octubre";
+        meses[10]="noviembre";
+        meses[11]="diciembre";
         for(int x=0;x<litros.length;x++)
         {            
             for(int y=0;y<litros[x].length;y++)
@@ -27,7 +41,19 @@ public class Capitulo4Practica1Ejercicio3 {
                 litros[x][y]=Integer.parseInt(JOptionPane.showInputDialog("Inserta litros del dia "+(y+1)+" del mes "+(x+1)));                 
             }            
         }
-        JOptionPane.showMessageDialog(null,"ha llovido"+Arrays.deepToString(litros));
-    }
-    
+        for(int m=0;m<sumaDias.length;m++)
+        {
+            sumaDias[m]=0;  
+            for (int i = 0; i < litros[m].length; i++)
+            {  
+               sumaDias[m]=sumaDias[m]+litros[m][i];                  
+            }        
+        }
+        String serie="";
+        for(int x=0;x<meses.length;x++)
+        {
+            serie=serie+"En el mes "+meses[x]+" a llovido: "+sumaDias[x]+" L\n";
+        }
+        JOptionPane.showMessageDialog(null,serie);
+    }    
 }
