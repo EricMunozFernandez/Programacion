@@ -19,7 +19,7 @@ public class Capitulo4Practica1Ejercicio3 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int [][]litros=new int[12][2];
+        int [][]litros=new int[12][31];
         int []sumaDias=new int [12];
         String []meses=new String[12]; 
         meses[0]="enero";
