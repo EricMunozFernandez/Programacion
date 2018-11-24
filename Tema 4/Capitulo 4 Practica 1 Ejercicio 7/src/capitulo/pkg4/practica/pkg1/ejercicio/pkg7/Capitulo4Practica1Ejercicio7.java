@@ -5,6 +5,7 @@
  */
 package capitulo.pkg4.practica.pkg1.ejercicio.pkg7;
 
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 /**
@@ -33,12 +34,35 @@ public class Capitulo4Practica1Ejercicio7 {
             else
             {
                 JOptionPane.showMessageDialog(null,"codigo correcto");
-            }
-            int cantProd = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduzca la cantidad del producto"));
+                int cantProd = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduzca la cantidad del producto"));
+                cantidad[x]=cantProd;
+            }            
             continuar = JOptionPane.showInputDialog("¿Quieres seguir introduciendo datos? <s/n>").toLowerCase().charAt(0);
         }
         while (continuar == 's');
-        
+        int min=100;
+        int pos=0;
+        for(int x=0;x<cantidad.length;x++)
+        {
+            for(pos=0;pos<cantidad.length;pos++)
+            {
+                if(min>cantidad[pos])
+                {
+                    min=cantidad[pos];
+                }                 
+            }
+            cantidad[pos]=cantidad[0];
+            cantidad[0]=min;
+            int aux=Codigo[pos];
+            Codigo[pos]=Codigo[0];
+            Codigo[0]=aux;
+        }        
+        String lista="";
+        for(int i=0; i<cantidad.length;i++)
+        {
+            lista=lista+"El producto "+Codigo[i]+" tiene "+cantidad[i]+" unidades\n";
+        }
+        JOptionPane.showMessageDialog(null,lista);
     }
     
 }
