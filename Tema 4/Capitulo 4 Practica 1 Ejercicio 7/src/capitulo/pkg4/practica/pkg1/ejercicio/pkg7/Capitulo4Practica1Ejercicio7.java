@@ -25,7 +25,7 @@ public class Capitulo4Practica1Ejercicio7 {
         do{
             int producto= Integer.parseInt(JOptionPane.showInputDialog("Teclea el codigo producto"));        
             int x;  
-            for(x = 0; x < Codigo.length &&  Codigo[x]!=producto; x++)
+            for(x = 0; x < Codigo.length &&  Codigo[x]!=producto; x++)//si los datos estan ordenados se puede con Arrays.binarySearch(Codigo,producto);
             {}
             if (x == Codigo.length)
             {
@@ -40,22 +40,38 @@ public class Capitulo4Practica1Ejercicio7 {
             continuar = JOptionPane.showInputDialog("¿Quieres seguir introduciendo datos? <s/n>").toLowerCase().charAt(0);
         }
         while (continuar == 's');
+        /*int aux;
+        for(int x=0;x<cantidad.length-1;x++)
+        {
+            for(int y=x+1;y<cantidad.length;y++)
+            {
+                if(cantidad[x]<cantidad[y])
+                {
+                    aux=Codigo[x];
+                    Codigo[x]=Codigo[y];
+                    Codigo[y]=aux;
+                    aux=cantidad[x];
+                    cantidad[x]=cantidad[y];
+                    cantidad[y]=aux;                    
+                }                 
+            }
+        }*/
         int min=100;
-        int pos=0;
+        int pos;
         for(int x=0;x<cantidad.length;x++)
         {
-            for(pos=0;pos<cantidad.length;pos++)
+            for(pos=x;pos<cantidad.length;pos++)
             {
                 if(min>cantidad[pos])
                 {
                     min=cantidad[pos];
                 }                 
             }
-            cantidad[pos]=cantidad[0];
-            cantidad[0]=min;
+            cantidad[pos]=cantidad[x];
+            cantidad[x]=min;
             int aux=Codigo[pos];
-            Codigo[pos]=Codigo[0];
-            Codigo[0]=aux;
+            Codigo[pos]=Codigo[x];
+            Codigo[x]=aux;
         }        
         String lista="";
         for(int i=0; i<cantidad.length;i++)

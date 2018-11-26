@@ -18,10 +18,12 @@ public class Capitulo4Practica1Ejercicio9 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        String alumno[][]={{"ingles","frances","aleman","ruso"},{ "basico","medio","perfeccionamiento"}};
+        String alumno[][]=new String[4][3];
+        String niv[]={"basico","medio","perfeccionamiento"};
+        String idi[]={"ingles","frances","aleman","ruso"};
         int x;
         String idioma=JOptionPane.showInputDialog("Introduce el idioma").toLowerCase();
-        for( x = 0; x < alumno.length &&  alumno[x].equals(idioma); x++)
+        for( x = 0; x < idi.length &&  idi[x].equals(idioma); x++)
             {}
             if (x == alumno.length)
             {
@@ -32,7 +34,7 @@ public class Capitulo4Practica1Ejercicio9 {
                 JOptionPane.showMessageDialog(null,"idioma correcto");
                 String nivel =JOptionPane.showInputDialog(null, "Introduzca el nivel").toLowerCase();
                 int y;
-                for( y = 0; y < alumno[x].length &&  alumno[x].equals(nivel); y++)
+                for( y = 0; y < niv.length &&  niv.equals(nivel); y++)
                 {}
                 if (y == alumno[x].length)
                 {
@@ -43,7 +45,7 @@ public class Capitulo4Practica1Ejercicio9 {
                     JOptionPane.showMessageDialog(null,"nivel correcto");
                     int dato = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduzca la cantidad de alumnos"));
                     String datoString=dato+"";
-                    alumno[x][y]=datoString;
+                    alumno[x][y]=datoString;                    
                 }
             }
     }
