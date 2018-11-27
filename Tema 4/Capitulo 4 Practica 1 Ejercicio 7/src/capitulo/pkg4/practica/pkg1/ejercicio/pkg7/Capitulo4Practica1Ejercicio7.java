@@ -35,7 +35,7 @@ public class Capitulo4Practica1Ejercicio7 {
             {
                 JOptionPane.showMessageDialog(null,"codigo correcto");
                 int cantProd = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduzca la cantidad del producto"));
-                cantidad[x]=cantProd;
+                cantidad[x]+=cantProd;
             }            
             continuar = JOptionPane.showInputDialog("¿Quieres seguir introduciendo datos? <s/n>").toLowerCase().charAt(0);
         }
@@ -57,20 +57,23 @@ public class Capitulo4Practica1Ejercicio7 {
             }
         }*/
         int min=100;
-        int pos;
+        int pos,posMin=0;
         for(int x=0;x<cantidad.length;x++)
         {
+            min=100;
             for(pos=x;pos<cantidad.length;pos++)
             {
                 if(min>cantidad[pos])
                 {
                     min=cantidad[pos];
+                    posMin = pos;
                 }                 
             }
-            cantidad[pos]=cantidad[x];
+            cantidad[posMin]=cantidad[x];
             cantidad[x]=min;
-            int aux=Codigo[pos];
-            Codigo[pos]=Codigo[x];
+            
+            int aux=Codigo[posMin];
+            Codigo[posMin]=Codigo[x];
             Codigo[x]=aux;
         }        
         String lista="";
