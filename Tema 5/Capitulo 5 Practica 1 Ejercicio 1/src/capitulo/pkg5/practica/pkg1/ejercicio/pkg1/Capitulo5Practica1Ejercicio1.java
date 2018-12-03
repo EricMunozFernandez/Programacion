@@ -18,6 +18,7 @@ public class Capitulo5Practica1Ejercicio1 {
     /**
      * @param args the command line arguments
      */
+    public static double sumaTotal;
     public static ArrayList<Double>lista;
     public static void main(String[] args) {
         // TODO code application logic here
@@ -179,6 +180,7 @@ public class Capitulo5Practica1Ejercicio1 {
     }
     public static void convertir()
     {
+        //Double[]array=lista.toArray(new Double[lista.size()]);
         Object[]listaArray=lista.toArray();
         JOptionPane.showMessageDialog(null,"El arrayList se ha convertido en array: "+Arrays.toString(listaArray));
     }
@@ -222,6 +224,7 @@ public class Capitulo5Practica1Ejercicio1 {
             suma=suma+lista.get(x);
         }
        double media=suma/x;
-       JOptionPane.showMessageDialog(null,"La media de todos los numero es "+media);       
+       JOptionPane.showMessageDialog(null,"La media de todos los numero es "+media);
+    //lista.forEach((elemento)->{sumaTotal+=elemento;});     
     }
 }
