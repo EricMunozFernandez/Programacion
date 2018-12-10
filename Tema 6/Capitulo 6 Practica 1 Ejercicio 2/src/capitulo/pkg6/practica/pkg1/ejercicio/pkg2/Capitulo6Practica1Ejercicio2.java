@@ -32,12 +32,13 @@ public class Capitulo6Practica1Ejercicio2 {
             agenda.add(a);
         }
         while(JOptionPane.showConfirmDialog(null,"Quieres continuar?")==0);
-        int cod=Integer.parseInt(JOptionPane.showInputDialog("Inserta el codigo del alumno del que quieres saber los datos"));
-        for(int x=0;x<agenda.size()&&a.getCodigo()==cod;x++)
+        int cod=Integer.parseInt(JOptionPane.showInputDialog("Inserta el codigo del alumno del que quieres saber los datos"));        
+        int x;
+        for(x=0;x<agenda.size()&&agenda.get(x).getCodigo()!=cod;x++)
         {}
-        if(a.getCodigo()==cod)
+        if(agenda.get(x).getCodigo()==cod)
         {
-        JOptionPane.showMessageDialog(null,"El alumno es:\n"+a.getNombre()+a.getDomicilio()+a.getTelefono());
+        JOptionPane.showMessageDialog(null,"El alumno es:\n"+agenda.get(x).getNombre()+"\nVive en:\n"+agenda.get(x).getDomicilio()+"\nSu telefono es:\n"+agenda.get(x).getTelefono());
         }
     }
     
