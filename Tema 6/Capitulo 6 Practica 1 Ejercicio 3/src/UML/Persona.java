@@ -14,17 +14,17 @@ import java.time.format.DateTimeFormatter;
  */
 public class Persona {
     private String nombre;
-    private int dNacimiento;
-    private int mNacimiento;
-    private int aNacimiento;
+    private String dNacimiento;
+    private String mNacimiento;
+    private String aNacimiento;
     private String direccion;
-    private int codigoPostal;
+    private String codigoPostal;
     private String ciudad;
 
     public Persona() {
     }
 
-    public Persona(String nombre, int dNacimiento, int aNacimiento, String direccion, int codigoPostal, String ciudad) {
+    public Persona(String nombre, String dNacimiento, String aNacimiento, String direccion, String codigoPostal, String ciudad) {
         this.nombre = nombre;
         this.dNacimiento = dNacimiento;
         this.aNacimiento = aNacimiento;
@@ -41,27 +41,27 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public int getdNacimiento() {
+    public String getdNacimiento() {
         return dNacimiento;
     }
 
-    public void setdNacimiento(int dNacimiento) {
+    public void setdNacimiento(String dNacimiento) {
         this.dNacimiento = dNacimiento;
     }
 
-    public int getmNacimiento() {
+    public String getmNacimiento() {
         return mNacimiento;
     }
 
-    public void setmNacimiento(int mNacimiento) {
+    public void setmNacimiento(String mNacimiento) {
         this.mNacimiento = mNacimiento;
     }
 
-    public int getaNacimiento() {
+    public String getaNacimiento() {
         return aNacimiento;
     }
 
-    public void setaNacimiento(int aNacimiento) {
+    public void setaNacimiento(String aNacimiento) {
         this.aNacimiento = aNacimiento;
     }
 
@@ -73,11 +73,11 @@ public class Persona {
         this.direccion = direccion;
     }
 
-    public int getCodigoPostal() {
+    public String getCodigoPostal() {
         return codigoPostal;
     }
 
-    public void setCodigoPostal(int codigoPostal) {
+    public void setCodigoPostal(String codigoPostal) {
         this.codigoPostal = codigoPostal;
     }
 
