@@ -27,16 +27,22 @@ public class Capitulo6Practica1Ejercicio3 {
                 Persona p= new Persona();
                 String nombre = JOptionPane.showInputDialog("Teclea el nombre de la persona");
                 validarNombre(nombre);
+                p.setNombre(nombre);
                 String codigoPostal = JOptionPane.showInputDialog("Teclea el código Postal");
                 validarCodigoPostal(codigoPostal);
+                p.setCodigoPostal(codigoPostal);
                 String direccion = JOptionPane.showInputDialog("Teclea la direccion de la perosna");
                 validarDireccion(direccion);
+                p.setDireccion(direccion);
                 String dNacimiento = JOptionPane.showInputDialog("Teclea el dia de nacimiento");
                 validarDia(dNacimiento);
+                p.setdNacimiento(dNacimiento);
                 String mNacimiento = JOptionPane.showInputDialog("Teclea el mes de nacimiento");
                 validarMes(mNacimiento);
+                p.setmNacimiento(mNacimiento);
                 String aNacimiento = JOptionPane.showInputDialog("Teclea el año de nacimiento");
                 validarAño(aNacimiento);
+                p.setaNacimiento(aNacimiento);
                 p.fechaNacimiento();
                 lista[x]=p;
             }
