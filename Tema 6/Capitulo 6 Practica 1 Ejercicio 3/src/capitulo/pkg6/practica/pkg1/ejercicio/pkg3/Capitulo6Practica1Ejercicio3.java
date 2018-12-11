@@ -38,6 +38,7 @@ public class Capitulo6Practica1Ejercicio3 {
                 String aNacimiento = JOptionPane.showInputDialog("Teclea el año de nacimiento");
                 validarAño(aNacimiento);
                 p.fechaNacimiento();
+                lista[x]=p;
             }
             catch(DatoNoValido e){
               JOptionPane.showMessageDialog(null,"El dato introducido no es correcto");
