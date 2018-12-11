@@ -6,6 +6,7 @@
 package capitulo.pkg6.practica.pkg1.ejercicio.pkg3;
 
 import UML.Persona;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,6 +18,7 @@ public class Capitulo6Practica1Ejercicio3 {
     /**
      * @param args the command line arguments
      */
+    public static LocalDate fechaNacimiento;
     public static void main(String[] args) {
         // TODO code application logic here
         Persona lista[]=new Persona[3];
@@ -25,29 +27,32 @@ public class Capitulo6Practica1Ejercicio3 {
             try
             {
                 Persona p= new Persona();
-                String nombre = JOptionPane.showInputDialog("Teclea el nombre de la persona");
+                String nombre = JOptionPane.showInputDialog("Teclea el nombre de la persona (2 caracteres minimo)");
                 validarNombre(nombre);
                 p.setNombre(nombre);
-                String codigoPostal = JOptionPane.showInputDialog("Teclea el código Postal");
+                String codigoPostal = JOptionPane.showInputDialog("Teclea el código Postal (5 caracteres)");
                 validarCodigoPostal(codigoPostal);
                 p.setCodigoPostal(codigoPostal);
-                String direccion = JOptionPane.showInputDialog("Teclea la direccion de la perosna");
+                String direccion = JOptionPane.showInputDialog("Teclea la direccion de la persona (10 caracteres)");
                 validarDireccion(direccion);
                 p.setDireccion(direccion);
-                String dNacimiento = JOptionPane.showInputDialog("Teclea el dia de nacimiento");
+                String ciudad = JOptionPane.showInputDialog("Teclea la ciudad de la persona");
+                p.setCiudad(ciudad);
+                String dNacimiento = JOptionPane.showInputDialog("Teclea el dia de nacimiento (DD)");
                 validarDia(dNacimiento);
                 p.setdNacimiento(dNacimiento);
-                String mNacimiento = JOptionPane.showInputDialog("Teclea el mes de nacimiento");
+                String mNacimiento = JOptionPane.showInputDialog("Teclea el mes de nacimiento (MM)");
                 validarMes(mNacimiento);
                 p.setmNacimiento(mNacimiento);
-                String aNacimiento = JOptionPane.showInputDialog("Teclea el año de nacimiento");
+                String aNacimiento = JOptionPane.showInputDialog("Teclea el año de nacimiento (YYYY)");
                 validarAño(aNacimiento);
                 p.setaNacimiento(aNacimiento);
-                p.fechaNacimiento();
+                fechaNacimiento=p.fechaNacimiento();
                 lista[x]=p;
             }
-            catch(DatoNoValido e){
-              JOptionPane.showMessageDialog(null,"El dato introducido no es correcto");
+            catch(DatoNoValido e)
+            {
+                JOptionPane.showMessageDialog(null,"El dato introducido no es correcto");
             }
             catch(Exception e)
             {
@@ -60,20 +65,41 @@ public class Capitulo6Practica1Ejercicio3 {
     }
     public static void buscarMayorEdad(Persona[]lista)
     {
+        int max=0;
+        int pos=0;
         for(int x=0;x<lista.length;x++)
         {
-            
+            if(lista[x].edad(fechaNacimiento)>max)
+            {
+                max=lista[x].edad(fechaNacimiento);
+                pos=x;
+            }
         }
+        JOptionPane.showMessageDialog(null,"La persona mas vieja es"+lista[pos].getNombre()+"y tiene"+lista[pos].edad(fechaNacimiento));
     }
     public static void buscarDireccion(Persona[]lista)
     {
-        
+        for(int x=0;x<lista.length;x++)
+        {
+            if(lista[x].getCiudad().equals("Elche"))
+            {
+                JOptionPane.showMessageDialog(null,"La persona "+lista[x].getNombre()+" vive en Elche"); 
+            }
+        }
     }
     public static void numeroPersonasMayores(Persona[]lista)
     {
-        for(int x=0;x<lista.length;x++)
+        int x;
+        for(x=0;x<lista.length;x++)
         {
-            
+            if(lista[x].edad(fechaNacimiento)>18)
+            {
+                JOptionPane.showMessageDialog(null,"La persona "+lista[x].getNombre()+" es mayor de edad");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null,"La persona "+lista[x].getNombre()+" no es mayor de edad");
+            }
         }
     }
     public static void validarNombre(String nombre)throws Exception{

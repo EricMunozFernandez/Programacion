@@ -6,6 +6,7 @@
 package UML;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -88,10 +89,17 @@ public class Persona {
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
-    public void fechaNacimiento()
+    public LocalDate fechaNacimiento()
     {
-        DateTimeFormatter formatter= DateTimeFormatter.ofPattern("DD/MM/YYYY");
+        DateTimeFormatter formatter= DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String fechaString=dNacimiento+"/"+mNacimiento+"/"+aNacimiento;
-        LocalDate fechaNacimineto=LocalDate.parse(fechaString,formatter);
+        LocalDate fechaNacimiento=LocalDate.parse(fechaString,formatter);
+        return fechaNacimiento;
+    }
+    public int edad(LocalDate fechaNacimiento)
+    {
+        LocalDate ahora=LocalDate.now();
+        Period edad=Period.between(fechaNacimiento,ahora);
+        return edad.getYears();
     }
 }
