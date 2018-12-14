@@ -13,21 +13,22 @@ import java.util.ArrayList;
  */
 public class Pelicula {
     private String titulo;
-    private char año;
+    private char[] año;
     private float duracion;
     private String tipo;
+    private ArrayList<Estudio>listaEstudios;
 
-    public Pelicula(String titulo, char año, float duracion, String tipo) {
+    //este es el metodo nuevaPelicula (Constructor)
+    public Pelicula() {
+    }
+
+    public Pelicula(String titulo, char[] año, float duracion, String tipo, ArrayList<Estudio> listaEstudios) {
         this.titulo = titulo;
         this.año = año;
         this.duracion = duracion;
         this.tipo = tipo;
-
+        this.listaEstudios = listaEstudios;
     }
-
-    public Pelicula() {
-    }
-
 
     public String getTitulo() {
         return titulo;
@@ -37,11 +38,11 @@ public class Pelicula {
         this.titulo = titulo;
     }
 
-    public char getAño() {
+    public char[] getAño() {
         return año;
     }
 
-    public void setAño(char año) {
+    public void setAño(char[] año) {
         this.año = año;
     }
 
@@ -60,19 +61,23 @@ public class Pelicula {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    public static void nuevaPelicula()
+
+    public ArrayList<Estudio> getListaEstudios() {
+        return listaEstudios;
+    }
+
+    public void setListaEstudios(ArrayList<Estudio> listaEstudios) {
+        this.listaEstudios = listaEstudios;
+    }    
+    public void modificarPelicula()            
     {
         
     }
-    public static void modificaPelicula()
+    public void desplegarPelicula()            
     {
         
     }
-    public static void despliegaPelicula()
-    {
-        
-    }
-    public static void eliminaPelicula()
+    public void eliminarPelicula()            
     {
         
     }

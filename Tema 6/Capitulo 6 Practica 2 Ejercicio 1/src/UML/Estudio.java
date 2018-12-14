@@ -18,14 +18,23 @@ public class Estudio {
     private String ciudad;
     private String direccion;
     private String dirWeb;
-    private Date fechaFundacion;
+    private Date fechaFundacion;//mejor LocalDate
     private String pais;
-    private List telefono;
+    private ArrayList<String> telefono;
 
-
+    ////este es el metodo nuevoEstudio (Constructor)
     public Estudio() {
     }
 
+    public Estudio(String nombre, String ciudad, String direccion, String dirWeb, Date fechaFundacion, String pais, ArrayList telefono) {
+        this.nombre = nombre;
+        this.ciudad = ciudad;
+        this.direccion = direccion;
+        this.dirWeb = dirWeb;
+        this.fechaFundacion = fechaFundacion;
+        this.pais = pais;
+        this.telefono = telefono;
+    }
 
     public String getNombre() {
         return nombre;
@@ -79,11 +88,19 @@ public class Estudio {
         return telefono;
     }
 
-    public void setTelefono(List telefono) {
+    public void setTelefono(ArrayList telefono) {
         this.telefono = telefono;
     }
-
-    
-    
+    public Estudio[]desplegarEstudio()
+    {
+        return null;
+    }
+    public void modificarEstudio()
+    {
+        
+    }
+    public void cierraEstudio()
+    {
+        
+    }
 }
-
