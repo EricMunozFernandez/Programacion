@@ -4,69 +4,86 @@
  * and open the template in the editor.
  */
 package UML;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 /**
  *
  * @author 1gdaw07
  */
 public class Estudio {
-    private String titulo;
-    private char año;
-    private float duracion;
-    private String tipo;
-    private Pelicula Peliculas;
+    private String nombre;
+    private String ciudad;
+    private String direccion;
+    private String dirWeb;
+    private Date fechaFundacion;
+    private String pais;
+    private List telefono;
+
 
     public Estudio() {
     }
 
-    public Estudio(String titulo, char año, float duracion, String tipo, Pelicula Peliculas) {
-        this.titulo = titulo;
-        this.año = año;
-        this.duracion = duracion;
-        this.tipo = tipo;
-        this.Peliculas = Peliculas;
+
+    public String getNombre() {
+        return nombre;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public String getCiudad() {
+        return ciudad;
     }
 
-    public char getAño() {
-        return año;
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
 
-    public void setAño(char año) {
-        this.año = año;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public float getDuracion() {
-        return duracion;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public void setDuracion(float duracion) {
-        this.duracion = duracion;
+    public String getDirWeb() {
+        return dirWeb;
     }
 
-    public String getTipo() {
-        return tipo;
+    public void setDirWeb(String dirWeb) {
+        this.dirWeb = dirWeb;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public Date getFechaFundacion() {
+        return fechaFundacion;
     }
 
-    public Pelicula getPeliculas() {
-        return Peliculas;
+    public void setFechaFundacion(Date fechaFundacion) {
+        this.fechaFundacion = fechaFundacion;
     }
 
-    public void setPeliculas(Pelicula Peliculas) {
-        this.Peliculas = Peliculas;
+    public String getPais() {
+        return pais;
     }
-    public void peliculaMasLarga()
-    {
-        
+
+    public void setPais(String pais) {
+        this.pais = pais;
     }
+
+    public List getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(List telefono) {
+        this.telefono = telefono;
+    }
+
+    
+    
 }
+

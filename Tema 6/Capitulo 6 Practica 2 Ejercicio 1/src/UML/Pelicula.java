@@ -6,99 +6,74 @@
 package UML;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 /**
  *
  * @author 1gdaw07
  */
 public class Pelicula {
-    private String nombre;
-    private String ciudad;
-    private String direccion;
-    private String dirWeb;
-    private Date fechaFundacion;
-    private String pais;
-    private List telefono;
-    private ArrayList<Estudio> listaEstudio;
+    private String titulo;
+    private char año;
+    private float duracion;
+    private String tipo;
+
+    public Pelicula(String titulo, char año, float duracion, String tipo) {
+        this.titulo = titulo;
+        this.año = año;
+        this.duracion = duracion;
+        this.tipo = tipo;
+
+    }
 
     public Pelicula() {
     }
 
-    public Pelicula(String nombre, String ciudad, String direccion, String dirWeb, Date fechaFundacion, String pais, List telefono, ArrayList<Estudio> listaEstudio) {
-        this.nombre = nombre;
-        this.ciudad = ciudad;
-        this.direccion = direccion;
-        this.dirWeb = dirWeb;
-        this.fechaFundacion = fechaFundacion;
-        this.pais = pais;
-        this.telefono = telefono;
-        this.listaEstudio = listaEstudio;
+
+    public String getTitulo() {
+        return titulo;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public char getAño() {
+        return año;
     }
 
-    public String getCiudad() {
-        return ciudad;
+    public void setAño(char año) {
+        this.año = año;
     }
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
+    public float getDuracion() {
+        return duracion;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public void setDuracion(float duracion) {
+        this.duracion = duracion;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public String getTipo() {
+        return tipo;
     }
 
-    public String getDirWeb() {
-        return dirWeb;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
-
-    public void setDirWeb(String dirWeb) {
-        this.dirWeb = dirWeb;
+    public static void nuevaPelicula()
+    {
+        
     }
-
-    public Date getFechaFundacion() {
-        return fechaFundacion;
+    public static void modificaPelicula()
+    {
+        
     }
-
-    public void setFechaFundacion(Date fechaFundacion) {
-        this.fechaFundacion = fechaFundacion;
+    public static void despliegaPelicula()
+    {
+        
     }
-
-    public String getPais() {
-        return pais;
+    public static void eliminaPelicula()
+    {
+        
     }
-
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
-
-    public List getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(List telefono) {
-        this.telefono = telefono;
-    }
-
-    public ArrayList<Estudio> getListaEstudio() {
-        return listaEstudio;
-    }
-
-    public void setListaEstudio(ArrayList<Estudio> listaEstudio) {
-        this.listaEstudio = listaEstudio;
-    }
-    
 }
