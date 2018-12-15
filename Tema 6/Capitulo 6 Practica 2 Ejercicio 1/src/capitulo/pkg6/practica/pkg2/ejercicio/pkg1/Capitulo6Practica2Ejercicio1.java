@@ -115,9 +115,16 @@ public class Capitulo6Practica2Ejercicio1 {
     }   
     public static void buscarEstudioConMasPeliculas()
     {
+       
         for(int x=0;x<listaPeliculas.size();x++)
         {
-            
+          for(int y=0;y<listaEstudios.length;y++)
+          {
+              if(listaPeliculas.get(x).getListaEstudios().contains(listaEstudios[y]))
+              {
+                //hacer algo pero no se como ponerlo
+              }
+          }
         }
     }
     
