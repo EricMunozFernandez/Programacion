@@ -66,5 +66,20 @@ public class Asiento {
     public void setVuelo(Vuelo vuelo) {
         this.vuelo = vuelo;
     }
-    
+    public void reservar()
+    {
+        
+    }
+    public void comprar()
+    {
+        
+    }
+    public boolean mostrarDisponibilidad()
+    {
+        return false;
+    }
+    public void desbloquear()
+    {
+        
+    }
 }

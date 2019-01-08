@@ -139,6 +139,20 @@ public class Vuelo {
     public void setAvion(Avion avion) {
         this.avion = avion;
     }
-    
-    
+    public void reservar()
+    {
+        
+    }
+    public void modificar()
+    {
+        
+    }
+    public void eliminar()
+    {
+        
+    }
+    public Vuelo buscar()
+    {
+        return null;
+    }
 }

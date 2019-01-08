@@ -48,9 +48,12 @@ public class Ciudad {
     public void setVuelos(ArrayList<Vuelo> vuelos) {
         this.vuelos = vuelos;
     }
-    public void agregar_nuevo()
+    public void agregarNuevo()
     {
         
     }
-    
+    public Ciudad obtener()
+    {
+        return null;
+    }    
 }

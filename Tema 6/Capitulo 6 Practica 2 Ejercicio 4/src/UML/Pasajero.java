@@ -88,5 +88,20 @@ public class Pasajero {
     public void setAsiento(Asiento asiento) {
         this.asiento = asiento;
     }
-    
+    public void agregarNuevo()
+    {
+        
+    }
+    public void modificar()
+    {
+        
+    }
+    public void asignarVuelo()
+    {
+        
+    }
+    public Pasajero buscar()
+    {
+        return null;
+    }
 }

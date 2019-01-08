@@ -68,5 +68,16 @@ public class Avion {
     public void setVuelos(ArrayList<Vuelo> vuelos) {
         this.vuelos = vuelos;
     }
-    
+    public void asignarAVuelo()
+    {
+        
+    }
+    public Avion obtener()
+    {
+        return null;
+    }
+    public void concelarVuelo()
+    {
+        
+    }
 }
