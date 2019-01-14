@@ -5,10 +5,11 @@
  */
 package Vista;
 
+import javax.swing.JOptionPane;
 import tema.pkg8.practica.pkg1.Tema8Practica1;
-import static tema.pkg8.practica.pkg1.Tema8Practica1.numeroAleatorio1;
-import static tema.pkg8.practica.pkg1.Tema8Practica1.numeroAleatorio2;
-import static tema.pkg8.practica.pkg1.Tema8Practica1.sumaAleatorio;
+import static tema.pkg8.practica.pkg1.Tema8Practica1.nA1;
+import static tema.pkg8.practica.pkg1.Tema8Practica1.nA2;
+import static tema.pkg8.practica.pkg1.Tema8Practica1.sumaA;
 
 /**
  *
@@ -199,10 +200,13 @@ public class Ventana1 extends javax.swing.JFrame {
     private void bActivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActivarActionPerformed
         Tema8Practica1.crearAleatorio();
         Tema8Practica1.sumaAleatorio();
+        tfAleatorio1.setText(nA1);
+        tfAleatorio2.setText(nA2);
+        tfSumaAleatorio.setText(sumaA);
     }//GEN-LAST:event_bActivarActionPerformed
 
     private void bComprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComprobarActionPerformed
-        Tema8Practica1.comprobar();
+        Tema8Practica1.comprobar();        
     }//GEN-LAST:event_bComprobarActionPerformed
 
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed

@@ -21,6 +21,9 @@ public class Tema8Practica1 {
     public static int sumaAleatorio;
     public static int numeroAleatorio1;
     public static int numeroAleatorio2;
+    public static String nA1;
+    public static String nA2;
+    public static String sumaA;
     public static void main(String[] args) {
         // TODO code application logic here
         Ventana1 v=new Ventana1();
@@ -29,27 +32,32 @@ public class Tema8Practica1 {
     public static void crearAleatorio()
     {
         Random rd1 = new Random();
-        numeroAleatorio1 = rd1.nextInt(100)+1;        
-        Random rd2 = new Random();
-         
+        numeroAleatorio1 = rd1.nextInt(100)+1;
+        nA1=""+numeroAleatorio1;
+        Random rd2 = new Random();        
         numeroAleatorio2 = rd2.nextInt(100)+1;
-        
+        nA2=""+numeroAleatorio2;
     }
-    public static int sumaAleatorio()
+    public static void sumaAleatorio()
     {
         sumaAleatorio=numeroAleatorio1+numeroAleatorio2;
-        return sumaAleatorio;
+        sumaA=""+sumaAleatorio;
     }
     public static void comprobar()
     {
         int respuesta=Integer.parseInt(JOptionPane.showInputDialog("Inserta el numero:"));        
+        int contador=0;
+        int acierto=0;
+        int fallo=0;
         if (respuesta==sumaAleatorio)
         {
-            
+            acierto++;
+            contador++;
         }
         else
         {
-            
+            fallo++;
+            contador++;
         }        
     }
 }
