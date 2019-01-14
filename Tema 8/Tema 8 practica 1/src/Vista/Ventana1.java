@@ -7,6 +7,9 @@ package Vista;
 
 import javax.swing.JOptionPane;
 import tema.pkg8.practica.pkg1.Tema8Practica1;
+import static tema.pkg8.practica.pkg1.Tema8Practica1.a;
+import static tema.pkg8.practica.pkg1.Tema8Practica1.c;
+import static tema.pkg8.practica.pkg1.Tema8Practica1.f;
 import static tema.pkg8.practica.pkg1.Tema8Practica1.nA1;
 import static tema.pkg8.practica.pkg1.Tema8Practica1.nA2;
 import static tema.pkg8.practica.pkg1.Tema8Practica1.sumaA;
@@ -40,7 +43,7 @@ public class Ventana1 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         tfSumaAleatorio = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        tfIntenos = new javax.swing.JTextField();
+        tfIntentos = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         tfAciertos = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -76,7 +79,7 @@ public class Ventana1 extends javax.swing.JFrame {
 
         jLabel4.setText("Intentos:");
 
-        tfIntenos.setEnabled(false);
+        tfIntentos.setEnabled(false);
 
         jLabel5.setText("Aciertos: ");
 
@@ -144,7 +147,7 @@ public class Ventana1 extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(bSalir))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(tfIntenos, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tfIntentos, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -169,7 +172,7 @@ public class Ventana1 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(tfIntenos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfIntentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(tfAciertos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
@@ -206,7 +209,10 @@ public class Ventana1 extends javax.swing.JFrame {
     }//GEN-LAST:event_bActivarActionPerformed
 
     private void bComprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComprobarActionPerformed
-        Tema8Practica1.comprobar();        
+        Tema8Practica1.comprobar(); 
+        tfAciertos.setText(a);
+        tfFallas.setText(f);
+        tfIntentos.setText(c);
     }//GEN-LAST:event_bComprobarActionPerformed
 
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
@@ -263,7 +269,7 @@ public class Ventana1 extends javax.swing.JFrame {
     private javax.swing.JTextField tfAleatorio1;
     private javax.swing.JTextField tfAleatorio2;
     private javax.swing.JTextField tfFallas;
-    private javax.swing.JTextField tfIntenos;
+    private javax.swing.JTextField tfIntentos;
     private javax.swing.JTextField tfSumaAleatorio;
     // End of variables declaration//GEN-END:variables
 }

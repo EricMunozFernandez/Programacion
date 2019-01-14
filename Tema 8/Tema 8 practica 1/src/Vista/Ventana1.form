@@ -54,7 +54,7 @@
                               <Component id="bSalir" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="tfIntenos" min="-2" pref="65" max="-2" attributes="0"/>
+                              <Component id="tfIntentos" min="-2" pref="65" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -86,7 +86,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfIntenos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfIntentos" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfAciertos" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -145,7 +145,7 @@
         <Property name="text" type="java.lang.String" value="Intentos:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfIntenos">
+    <Component class="javax.swing.JTextField" name="tfIntentos">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
