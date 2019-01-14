@@ -5,6 +5,11 @@
  */
 package Vista;
 
+import tema.pkg8.practica.pkg1.Tema8Practica1;
+import static tema.pkg8.practica.pkg1.Tema8Practica1.numeroAleatorio1;
+import static tema.pkg8.practica.pkg1.Tema8Practica1.numeroAleatorio2;
+import static tema.pkg8.practica.pkg1.Tema8Practica1.sumaAleatorio;
+
 /**
  *
  * @author 1gdaw07
@@ -93,8 +98,18 @@ public class Ventana1 extends javax.swing.JFrame {
         });
 
         bComprobar.setText("Comprobar");
+        bComprobar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bComprobarActionPerformed(evt);
+            }
+        });
 
         bSalir.setText("Salir");
+        bSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -182,8 +197,17 @@ public class Ventana1 extends javax.swing.JFrame {
     }//GEN-LAST:event_tfAciertosActionPerformed
 
     private void bActivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActivarActionPerformed
-        // TODO add your handling code here:
+        Tema8Practica1.crearAleatorio();
+        Tema8Practica1.sumaAleatorio();
     }//GEN-LAST:event_bActivarActionPerformed
+
+    private void bComprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComprobarActionPerformed
+        Tema8Practica1.comprobar();
+    }//GEN-LAST:event_bComprobarActionPerformed
+
+    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
+       System.exit(0);
+    }//GEN-LAST:event_bSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,6 +240,7 @@ public class Ventana1 extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Ventana1().setVisible(true);
+                
             }
         });
     }
