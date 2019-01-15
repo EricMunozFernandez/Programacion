@@ -18,9 +18,6 @@ public class Tema8Practica1 {
     /**
      * @param args the command line arguments
      */
-    public static int sumaAleatorio;
-    public static int numeroAleatorio1;
-    public static int numeroAleatorio2;
     public static String nA1;
     public static String nA2;
     public static String a;
@@ -30,31 +27,29 @@ public class Tema8Practica1 {
     public static int contador=0;
     public static int acierto=0;
     public static int fallo=0;
+    public static Ventana1 v;
     public static void main(String[] args) {
         // TODO code application logic here
-        Ventana1 v=new Ventana1();
+        v=new Ventana1();
         v.setVisible(true);
         
     }
     public static void crearAleatorio()
     {
         Random rd1 = new Random();
-        numeroAleatorio1 = rd1.nextInt(100)+1;
+        int numeroAleatorio1 = rd1.nextInt(100)+1;
         nA1=""+numeroAleatorio1;
         Random rd2 = new Random();        
-        numeroAleatorio2 = rd2.nextInt(100)+1;
+        int numeroAleatorio2 = rd2.nextInt(100)+1;
         nA2=""+numeroAleatorio2;
-    }
-    public static void sumaAleatorio()
-    {
-        sumaAleatorio=numeroAleatorio1+numeroAleatorio2;
-        sumaA=""+sumaAleatorio;
+        int sumaAleatorio=numeroAleatorio1+numeroAleatorio2;
+        sumaA=""+sumaAleatorio;          
     }
     public static void comprobar()
     {
         
-        int respuesta=Integer.parseInt(JOptionPane.showInputDialog("Inserta el numero:"));        
-        if (respuesta==sumaAleatorio)
+        String respuesta=JOptionPane.showInputDialog("Inserta el numero:");        
+        if (respuesta.equals(sumaA))
         {
             acierto++;
             a=""+acierto;
@@ -68,5 +63,10 @@ public class Tema8Practica1 {
             contador++;
             c=""+contador;
         }        
+    }
+    public static void salir()
+    {
+        v.dispose();
+        System.exit(0);
     }
 }

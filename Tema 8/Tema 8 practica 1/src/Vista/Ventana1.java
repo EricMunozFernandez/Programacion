@@ -5,7 +5,6 @@
  */
 package Vista;
 
-import javax.swing.JOptionPane;
 import tema.pkg8.practica.pkg1.Tema8Practica1;
 import static tema.pkg8.practica.pkg1.Tema8Practica1.a;
 import static tema.pkg8.practica.pkg1.Tema8Practica1.c;
@@ -79,10 +78,12 @@ public class Ventana1 extends javax.swing.JFrame {
 
         jLabel4.setText("Intentos:");
 
+        tfIntentos.setText("0");
         tfIntentos.setEnabled(false);
 
         jLabel5.setText("Aciertos: ");
 
+        tfAciertos.setText("0");
         tfAciertos.setEnabled(false);
         tfAciertos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +93,7 @@ public class Ventana1 extends javax.swing.JFrame {
 
         jLabel6.setText("Fallas:");
 
+        tfFallas.setText("0");
         tfFallas.setEnabled(false);
 
         bActivar.setText("Activar");
@@ -201,11 +203,13 @@ public class Ventana1 extends javax.swing.JFrame {
     }//GEN-LAST:event_tfAciertosActionPerformed
 
     private void bActivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActivarActionPerformed
-        Tema8Practica1.crearAleatorio();
-        Tema8Practica1.sumaAleatorio();
+        Tema8Practica1.crearAleatorio();        
         tfAleatorio1.setText(nA1);
         tfAleatorio2.setText(nA2);
         tfSumaAleatorio.setText(sumaA);
+        tfAciertos.setText(a);
+        tfFallas.setText(f);
+        tfIntentos.setText(c);
     }//GEN-LAST:event_bActivarActionPerformed
 
     private void bComprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComprobarActionPerformed
@@ -216,7 +220,7 @@ public class Ventana1 extends javax.swing.JFrame {
     }//GEN-LAST:event_bComprobarActionPerformed
 
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
-       System.exit(0);
+       Tema8Practica1.salir();
     }//GEN-LAST:event_bSalirActionPerformed
 
     /**
