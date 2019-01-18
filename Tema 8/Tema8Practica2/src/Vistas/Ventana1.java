@@ -5,6 +5,7 @@
  */
 package Vistas;
 
+import javax.swing.JOptionPane;
 import tema8practica2.Tema8Practica2;
 
 /**
@@ -126,6 +127,7 @@ public class Ventana1 extends javax.swing.JFrame {
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
         Tema8Practica2.añadirPersona(tfNombre.getText(), tfApellido.getText(), tfDni.getText());
+        JOptionPane.showMessageDialog(null,"Persona dada de alta");
         limpiar();        
     }//GEN-LAST:event_bAceptarActionPerformed
     private void limpiar(){

@@ -8,7 +8,6 @@ package tema8practica2;
 import UML.Persona;
 import Vistas.*;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 /**
  *
  * @author 1gdaw07
@@ -37,7 +36,7 @@ public class Tema8Practica2 {
         
         Persona p=new Persona(tfNombre, tfApellido, tfDni);        
         listaPersona.add(p);
-        JOptionPane.showMessageDialog(null,"Persona dada de alta");
+        
     }
     public static void verLista()
     {
