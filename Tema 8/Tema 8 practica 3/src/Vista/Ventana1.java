@@ -10,7 +10,6 @@ package Vista;
  * @author 1gdaw07
  */
 import Excepciones.*;
-import java.awt.Color;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.*;
@@ -47,10 +46,10 @@ public class Ventana1 extends javax.swing.JFrame {
         tfDni = new javax.swing.JTextField();
         tfNombre = new javax.swing.JTextField();
         tfApellidos = new javax.swing.JTextField();
-        tfCurso = new javax.swing.JTextField();
         bAceptar = new javax.swing.JButton();
         bSalir = new javax.swing.JButton();
         lErrorDni1 = new javax.swing.JLabel();
+        tfCurso = new javax.swing.JFormattedTextField();
 
         jLabel2.setText("jLabel2");
 
@@ -64,6 +63,11 @@ public class Ventana1 extends javax.swing.JFrame {
 
         jLabel5.setText("Curso");
 
+        tfDni.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfDniFocusLost(evt);
+            }
+        });
         tfDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfDniActionPerformed(evt);
@@ -71,6 +75,7 @@ public class Ventana1 extends javax.swing.JFrame {
         });
 
         bAceptar.setText("Aceptar");
+        bAceptar.setEnabled(false);
         bAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bAceptarActionPerformed(evt);
@@ -86,6 +91,12 @@ public class Ventana1 extends javax.swing.JFrame {
 
         lErrorDni1.setForeground(new java.awt.Color(255, 0, 51));
         lErrorDni1.setText("*");
+
+        try {
+            tfCurso.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#U")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -114,7 +125,7 @@ public class Ventana1 extends javax.swing.JFrame {
                                     .addComponent(tfApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(lErrorDni1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(tfCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(tfCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(206, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -133,11 +144,11 @@ public class Ventana1 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(tfApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(tfCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bAceptar)
                     .addComponent(bSalir))
@@ -159,17 +170,13 @@ public class Ventana1 extends javax.swing.JFrame {
 JTextField problema = null;
     try{
          // Validaciones que puede hacer la ventana
+         
          // Validar el nombre
          if (tfNombre.getText().isEmpty())
-         {
-             tfNombre.setBackground(Color.red);
+         {             
              problema = tfNombre;
              throw new DatoObligatorio(1);
-         }
-         else
-             if (tfNombre.getBackground()== Color.red)
-                  tfNombre.setBackground(Color.white);
-         
+         }         
          // Si no está vacío compruebo que tiene un formato adecuado.
          Pattern patron = Pattern.compile("^[A-Z][a-z]+( [A-Z][a-z]+)*$");
          Matcher m = patron.matcher(tfNombre.getText());
@@ -193,29 +200,7 @@ JTextField problema = null;
              throw new DatoNoValido(2);
          }
          
-         // Validamos el dni
-         if (tfDni.getText().isEmpty())
-         {
-             lErrorDni1.setVisible(true);
-             problema = tfDni;
-             throw new DatoObligatorio(3);
-         }
-         else
-         {
-            lErrorDni1.setVisible(false);
-         }
-         if (validarFormatoDni()== false)
-         {
-             tfDni.selectAll();
-             problema = tfDni;
-             throw new DatoNoValido(3);
-         }
-          
-          // Validar con "base de datos"
-         if (Tema8Practica3.validarDni(tfDni.getText())== false){
-             problema = tfDni;
-             throw new DatoNoValido(4);
-         }
+         
         JOptionPane.showMessageDialog(this,"Persona dada de alta");
         limpiarVentana();
      }
@@ -234,6 +219,55 @@ JTextField problema = null;
          JOptionPane.showMessageDialog(this,"Problemas \n" + e.getMessage());
      }        // TODO add your handling code here:
     }//GEN-LAST:event_bAceptarActionPerformed
+
+    private void tfDniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfDniFocusLost
+       // Validamos el dni
+       JTextField problema = null;
+       try{  
+        if (tfDni.getText().isEmpty())
+         {
+             lErrorDni1.setVisible(true);
+             problema = tfDni;
+             throw new DatoObligatorio(3);
+         }
+         else
+         {
+            lErrorDni1.setVisible(false);
+         }
+         if (validarFormatoDni()== false)
+         {
+             tfDni.selectAll();
+             problema = tfDni;
+             throw new DatoNoValido(3);
+         }
+        
+          // Validar con "base de datos"
+         if (Tema8Practica3.validarDni(tfDni.getText())== false)
+         {
+             problema = tfDni;
+             throw new DatoNoValido(4);
+         }
+        tfDni.setEnabled(false);
+        tfNombre.setEnabled(true);
+        tfApellidos.setEnabled(true);
+        tfCurso.setEnabled(true);
+       }
+        catch(DatoObligatorio e)
+        {
+         JOptionPane.showMessageDialog(this,e.getMessage());
+         problema.requestFocus();
+        }
+        catch(DatoNoValido e)
+        {
+         JOptionPane.showMessageDialog(this,e.getMessage());
+         problema.requestFocus();
+        }
+        catch(Exception e)
+        {
+         JOptionPane.showMessageDialog(this,"Problemas \n" + e.getMessage());
+        }        // TODO add your handling code here:
+             
+    }//GEN-LAST:event_tfDniFocusLost
 public boolean validarFormatoDni(){
    // Falta lo de %23
    String dniRegexp = "^[0-9]{8}[A-HJ-NP-TV-Z]$";
@@ -291,7 +325,7 @@ public void limpiarVentana(){
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lErrorDni1;
     private javax.swing.JTextField tfApellidos;
-    private javax.swing.JTextField tfCurso;
+    private javax.swing.JFormattedTextField tfCurso;
     private javax.swing.JTextField tfDni;
     private javax.swing.JTextField tfNombre;
     // End of variables declaration//GEN-END:variables

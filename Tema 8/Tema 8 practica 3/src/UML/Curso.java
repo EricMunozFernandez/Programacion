@@ -13,12 +13,25 @@ import java.util.ArrayList;
  */
 public class Curso {
     private String clase;   
-
+    private ArrayList<Persona>alumnos;
     public Curso() {
     }
 
     public Curso(String clase) {
         this.clase = clase;        
+    }
+
+    public Curso(String clase, ArrayList<Persona> alumnos) {
+        this.clase = clase;
+        this.alumnos = alumnos;
+    }
+
+    public ArrayList<Persona> getAlumnos() {
+        return alumnos;
+    }
+
+    public void setAlumnos(ArrayList<Persona> alumnos) {
+        this.alumnos = alumnos;
     }
 
     public String getClase() {
