@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="Operaciones">
     </Component>
@@ -39,8 +39,8 @@
                               </Group>
                               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="tfUni" min="-2" pref="217" max="-2" attributes="0"/>
                                   <Component id="tfNomProd" min="-2" pref="327" max="-2" attributes="0"/>
+                                  <Component id="tfUni" min="-2" pref="113" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -54,8 +54,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jPanel1" max="32767" attributes="0"/>
-                          <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jPanel3" max="32767" attributes="0"/>
+                          <Component id="panCompra" alignment="0" max="32767" attributes="0"/>
+                          <Component id="panVenta" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -87,9 +87,9 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <Component id="panCompra" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+              <Component id="panVenta" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="bAceptar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -123,8 +123,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfNomProdActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="tfUni">
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
@@ -173,6 +171,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Compra"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rCompraActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="rVenta">
           <Properties>
@@ -187,7 +188,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="panCompra">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -199,6 +200,7 @@
             </TitledBorder>
           </Border>
         </Property>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
 
       <Layout>
@@ -268,6 +270,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tfPrecioC">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="cProv">
           <Properties>
@@ -286,7 +291,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel3">
+    <Container class="javax.swing.JPanel" name="panVenta">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -298,6 +303,7 @@
             </TitledBorder>
           </Border>
         </Property>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
 
       <Layout>
@@ -306,7 +312,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                      <Component id="panDescu" min="-2" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -342,7 +348,7 @@
                       <Component id="tfCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                  <Component id="panDescu" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -370,8 +376,11 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tfCliente">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
-        <Container class="javax.swing.JPanel" name="jPanel4">
+        <Container class="javax.swing.JPanel" name="panDescu">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -383,6 +392,7 @@
                 </TitledBorder>
               </Border>
             </Property>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
 
           <Layout>
@@ -414,11 +424,13 @@
             <Component class="javax.swing.JCheckBox" name="cbVol">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Por Volumen"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="cbPago">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Por pronto pago"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -429,6 +441,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tfImporteV">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -442,6 +457,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfUni">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfUniActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
