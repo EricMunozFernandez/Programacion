@@ -365,7 +365,7 @@ public class VentanaAlmacen extends javax.swing.JFrame {
     }//GEN-LAST:event_tfNomProdActionPerformed
 
     private void rVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rVentaActionPerformed
-     panCompra.setEnabled(false); 
+    panCompra.setEnabled(false); 
     tfPrecioC.setEnabled(false); 
     cProv.setEnabled(false); 
     panVenta.setEnabled(true); 
@@ -387,7 +387,10 @@ public class VentanaAlmacen extends javax.swing.JFrame {
     cbPago.setEnabled(false); 
     cbVol.setEnabled(false);
     ArrayList comboboxProveedores = Tema8Practica3Ejercicio1.validarProveedor();
-    cProv.setSelectedIndex(1);
+    for(int x=0;x<comboboxProveedores.size();x++)
+    {
+        cProv.insertItemAt(comboboxProveedores.get(x).toString(),x);
+    }
     }//GEN-LAST:event_rCompraActionPerformed
 
     private void tfUniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUniActionPerformed

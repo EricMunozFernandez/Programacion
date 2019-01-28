@@ -86,13 +86,17 @@ public class Tema8Practica3Ejercicio1 {
     }
     public static ArrayList validarProveedor()
     {
-        int x=0;
+        int x;
+        int y;
         ArrayList<Proveedor> comboboxProveedores = new ArrayList<Proveedor>();
         for(x=0;x<listaProveedores.size();x++)
         { 
-            if(listaProveedores.get(x).getProductos().get(x).getNombre().compareToIgnoreCase(p.getNombre())!=0)
+            for(y=0;y<listaProveedores.get(x).getProductos().size();y++)
             {
-                comboboxProveedores.add(listaProveedores.get(x));
+                if(listaProveedores.get(x).getProductos().get(y).getNombre().compareToIgnoreCase(p.getNombre())==0)
+                {
+                    comboboxProveedores.add(listaProveedores.get(y));
+                }                
             }
         }
         return comboboxProveedores;
