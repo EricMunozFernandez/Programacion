@@ -5,6 +5,8 @@
  */
 package tema8practica3ejercicio2;
 
+import GUI.Vista;
+
 /**
  *
  * @author 1gdaw07
@@ -14,8 +16,11 @@ public class Tema8Practica3Ejercicio2 {
     /**
      * @param args the command line arguments
      */
+    public static Vista v;
     public static void main(String[] args) {
         // TODO code application logic here
+        v= new Vista();
+        v.setVisible(true);
     }
     
 }
