@@ -14,7 +14,7 @@ public class SocioIndividual extends Socio{
     public SocioIndividual() {
     }
 
-    public SocioIndividual(String nombre, String Apellido, int telefono, String email) {
+    public SocioIndividual(String nombre, String Apellido, String telefono, String email) {
         super(nombre, Apellido, telefono, email);
     }
     

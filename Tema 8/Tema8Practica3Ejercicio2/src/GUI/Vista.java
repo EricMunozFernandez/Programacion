@@ -11,6 +11,8 @@ import Excepciones.DatoObligatorio;
 import java.awt.Color;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+import tema8practica3ejercicio2.Tema8Practica3Ejercicio2;
 
 /**
  *
@@ -137,6 +139,11 @@ public class Vista extends javax.swing.JFrame {
         jLabel9.setText("Nombre:");
 
         tfNomHijo.setEnabled(false);
+        tfNomHijo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNomHijoActionPerformed(evt);
+            }
+        });
 
         jLabel10.setText("Fecha de Nac.:");
 
@@ -220,6 +227,11 @@ public class Vista extends javax.swing.JFrame {
         bInscribirse.setForeground(new java.awt.Color(51, 102, 255));
         bInscribirse.setText("Inscribirse");
         bInscribirse.setEnabled(false);
+        bInscribirse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bInscribirseActionPerformed(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 153, 0));
@@ -235,6 +247,11 @@ public class Vista extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         tformTel.setEnabled(false);
+        tformTel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tformTelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -431,17 +448,18 @@ try
         {
             throw new DatoObligatorio();
         }
-        String emailPattern = "^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@" +
-      "[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$";
-        if (tfCorreo.getText().compareToIgnoreCase(emailPattern)!=0)
+        Pattern patronEmail = Pattern.compile("^(.+)@(.+)$");
+        Matcher encaja=patronEmail.matcher(tfCorreo.getText());
+        if(!encaja.matches())
         {
             throw new PatronEmailIncorrecto();
         }
+        bInscribirse.setEnabled(true);
     }
     catch (PatronEmailIncorrecto e)
     {
         javax.swing.JOptionPane.showMessageDialog(this,"Patron de Email incorrecto");
-        tfApellido.requestFocus();
+        tfCorreo.requestFocus();
     }
     catch(DatoObligatorio e)
     {
@@ -454,6 +472,56 @@ try
         tfCorreo.requestFocus();
     }
     }//GEN-LAST:event_tfCorreoActionPerformed
+
+    private void tformTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tformTelActionPerformed
+    tfCorreo.requestFocus();
+    }//GEN-LAST:event_tformTelActionPerformed
+
+    private void bInscribirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInscribirseActionPerformed
+       if(rInd.getVerifyInputWhenFocusTarget())
+       {
+        Tema8Practica3Ejercicio2.añadirSocioIndividual(tfNomSoc.getText(), tfApellido.getText(),tformTel.getText(),tfCorreo.getText());
+        JOptionPane.showMessageDialog(this,"te has inscrito con exito");
+       }
+       else
+       {
+        Tema8Practica3Ejercicio2.añadirSocioFamiliar(tfNomSoc.getText(), tfApellido.getText(),tformTel.getText(),tfCorreo.getText(),tfNomHijo.getText(),comDia.getSelectedIndex(),comMes.getSelectedIndex(),comAño.getSelectedIndex());
+        JOptionPane.showMessageDialog(this,"tu familia se ha inscrito con exito");
+       }
+       System.exit(0);
+    }//GEN-LAST:event_bInscribirseActionPerformed
+
+    private void tfNomHijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomHijoActionPerformed
+try
+    {
+        if(tfNomHijo.getText().isEmpty())
+        {
+            throw new DatoObligatorio();
+        }
+        Pattern patron =Pattern.compile("[^0-9]*");
+        Matcher encaja=patron.matcher(tfNomHijo.getText());
+        if(!encaja.matches())
+        {
+            throw new PatronIncorrecto();
+        }
+        comDia.requestFocus();
+    }
+    catch(PatronIncorrecto e)
+    {
+        javax.swing.JOptionPane.showMessageDialog(this, "Patron Incorrecto");
+        tfNomHijo.requestFocus();
+    }
+    catch(DatoObligatorio e)
+    {
+        javax.swing.JOptionPane.showMessageDialog(this, "Dato obligatorio");
+        tfNomHijo.requestFocus();
+    }
+    catch(Exception e)
+    {
+        javax.swing.JOptionPane.showMessageDialog(this, "Problema de tipo: "+e.getMessage());
+        tfNomHijo.requestFocus();
+    }
+    }//GEN-LAST:event_tfNomHijoActionPerformed
     public void habilitar()
     {
         tfNomSoc.setEnabled(true);

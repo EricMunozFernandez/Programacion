@@ -17,7 +17,7 @@ public class SocioFamiliar extends Socio{
     public SocioFamiliar() {
     }
 
-    public SocioFamiliar(ArrayList<Hijo> hijos, String nombre, String apellido, int telefono, String email) {
+    public SocioFamiliar(ArrayList<Hijo> hijos, String nombre, String apellido, String telefono, String email) {
         super(nombre, apellido, telefono, email);
         this.hijos = hijos;
     }
