@@ -20,8 +20,7 @@ public class Tema8Practica3Ejercicio2 {
      * @param args the command line arguments
      */
     public static Vista v;
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) {       
         v= new Vista();
         v.setVisible(true);
     }
@@ -31,11 +30,14 @@ public class Tema8Practica3Ejercicio2 {
          SocioIndividual sI=new SocioIndividual(nomSocio,apellido,telefono,correo);
         sociosIndividuales.add(sI);
     }
-    public static void añadirSocioFamiliar(String nomSocio, String apellido, String telefono,String correo,String nomHijo,int dia,int mes,int año)
+    public static void añadirSocioFamiliar(String nomSocio, String apellido, String telefono,String correo,String nomHijo,Object dia,Object mes,Object año)
     {
         ArrayList <Hijo> hijos= new ArrayList();
         ArrayList <SocioFamiliar> SociosFamiliares= new ArrayList();
-        LocalDate nacimientoHijo = LocalDate.of(año,mes,dia);
+        int diaNac=Integer.parseInt(dia.toString());
+        int mesNac=Integer.parseInt(mes.toString());
+        int añoNac=Integer.parseInt(año.toString());
+        LocalDate nacimientoHijo = LocalDate.of(añoNac,mesNac,diaNac);
         Hijo hijo=new Hijo(nomHijo,nacimientoHijo);
         hijos.add(hijo);        
         SocioFamiliar sF=new SocioFamiliar(hijos,nomSocio,apellido,telefono,correo);

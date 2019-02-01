@@ -478,14 +478,14 @@ try
     }//GEN-LAST:event_tformTelActionPerformed
 
     private void bInscribirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInscribirseActionPerformed
-       if(rInd.getVerifyInputWhenFocusTarget())
+       if(rInd.isSelected())
        {
         Tema8Practica3Ejercicio2.añadirSocioIndividual(tfNomSoc.getText(), tfApellido.getText(),tformTel.getText(),tfCorreo.getText());
         JOptionPane.showMessageDialog(this,"te has inscrito con exito");
        }
-       else
+       if(rFam.isSelected())
        {
-        Tema8Practica3Ejercicio2.añadirSocioFamiliar(tfNomSoc.getText(), tfApellido.getText(),tformTel.getText(),tfCorreo.getText(),tfNomHijo.getText(),comDia.getSelectedIndex(),comMes.getSelectedIndex(),comAño.getSelectedIndex());
+        Tema8Practica3Ejercicio2.añadirSocioFamiliar(tfNomSoc.getText(), tfApellido.getText(),tformTel.getText(),tfCorreo.getText(),tfNomHijo.getText(),comDia.getSelectedItem(),comMes.getSelectedItem(),comAño.getSelectedItem());
         JOptionPane.showMessageDialog(this,"tu familia se ha inscrito con exito");
        }
        System.exit(0);
