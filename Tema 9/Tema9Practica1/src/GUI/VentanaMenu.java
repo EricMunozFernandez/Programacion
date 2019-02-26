@@ -5,6 +5,9 @@
  */
 package GUI;
 
+import javax.swing.JOptionPane;
+import tema9practica1.Tema9Practica1;
+import GUI.VentanaPersona;
 /**
  *
  * @author 1gdaw07
@@ -14,8 +17,10 @@ public class VentanaMenu extends javax.swing.JFrame {
     /**
      * Creates new form VentanaMenu
      */
+    private VentanaPersona vp;
     public VentanaMenu() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -33,7 +38,7 @@ public class VentanaMenu extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tfOpcion = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,6 +60,12 @@ public class VentanaMenu extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Opcion elegida");
 
+        tfOpcion.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfOpcionFocusLost(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -74,7 +85,7 @@ public class VentanaMenu extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addGap(44, 44, 44)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(tfOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(137, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -93,12 +104,52 @@ public class VentanaMenu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tfOpcionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfOpcionFocusLost
+switch(Integer.parseInt(tfOpcion.getText()))
+{
+    case 1:
+        {
+            this.dispose();
+            vp= new VentanaPersona();
+            Tema9Practica1.setOpcion(Integer.parseInt(tfOpcion.getText()));
+            vp.setVisible(true);
+            break;
+        }
+    case 2:
+        {
+            this.dispose();
+            String nom=JOptionPane.showInputDialog("introduce nombre");
+            Tema9Practica1.buscarNombre(nom);
+            vp= new VentanaPersona();
+            vp.setVisible(true);
+            break;            
+        }
+    case 3:
+        {
+            this.dispose();
+            vp= new VentanaPersona();
+            vp.setVisible(true);
+            break;
+        }
+    case 4:
+        {
+            Tema9Practica1.salir();
+            break;
+        }
+    default:
+        {
+            JOptionPane.showMessageDialog(this,"entre 1 y 4");
+        }
+        
+}
+    }//GEN-LAST:event_tfOpcionFocusLost
 
     /**
      * @param args the command line arguments
@@ -142,6 +193,6 @@ public class VentanaMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField tfOpcion;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import tema9practica1.Tema9Practica1;
+
 /**
  *
  * @author 1gdaw07
@@ -16,6 +18,44 @@ public class VentanaPersona extends javax.swing.JFrame {
      */
     public VentanaPersona() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        int opcion=Tema9Practica1.getOpcion();
+        switch(opcion)
+        {
+            case 1:
+                {
+                    tfNombre.setEnabled(true);
+                    tfEdad.setEnabled(true);
+                    tfProf.setEnabled(true);
+                    tfTel.setEnabled(true);
+                    bAtras.setEnabled(false);
+                    bAdelante.setEnabled(false);
+                    bAceptar.setEnabled(true);
+                    break;
+                }
+            case 2:
+                {
+                    tfNombre.setEnabled(false);
+                    tfEdad.setEnabled(false);
+                    tfProf.setEnabled(false);
+                    tfTel.setEnabled(false);
+                    bAtras.setEnabled(false);
+                    bAdelante.setEnabled(false);
+                    bAceptar.setEnabled(false);
+                    break;            
+                }
+            case 3:
+                {
+                    tfNombre.setEnabled(false);
+                    tfEdad.setEnabled(false);
+                    tfProf.setEnabled(false);
+                    tfTel.setEnabled(false);
+                    bAtras.setEnabled(true);
+                    bAdelante.setEnabled(true);
+                    bAceptar.setEnabled(false);
+                    break;
+                }
+        }
     }
 
     /**
@@ -32,14 +72,14 @@ public class VentanaPersona extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        bAtras = new javax.swing.JButton();
+        bAdelante = new javax.swing.JButton();
+        bSalir = new javax.swing.JButton();
+        bAceptar = new javax.swing.JButton();
+        tfNombre = new javax.swing.JTextField();
+        tfEdad = new javax.swing.JTextField();
+        tfProf = new javax.swing.JTextField();
+        tfTel = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,13 +94,23 @@ public class VentanaPersona extends javax.swing.JFrame {
 
         jLabel5.setText("Telefono");
 
-        jButton1.setText("<");
+        bAtras.setText("<");
 
-        jButton2.setText(">");
+        bAdelante.setText(">");
 
-        jButton3.setText("Salir");
+        bSalir.setText("Salir");
+        bSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Aceptar");
+        bAceptar.setText("Aceptar");
+        bAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAceptarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,23 +130,23 @@ public class VentanaPersona extends javax.swing.JFrame {
                                     .addComponent(jLabel5))
                                 .addGap(25, 25, 25)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(tfEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfProf, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfTel, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(148, 148, 148)
-                        .addComponent(jButton1)
+                        .addComponent(bAtras)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(bAdelante)
                         .addGap(24, 24, 24)
-                        .addComponent(jButton3)))
+                        .addComponent(bSalir)))
                 .addContainerGap(75, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton4)
+                .addComponent(bAceptar)
                 .addGap(104, 104, 104))
         );
         layout.setVerticalGroup(
@@ -107,31 +157,39 @@ public class VentanaPersona extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfProf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(bAtras)
+                    .addComponent(bAdelante)
+                    .addComponent(bSalir))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
+                .addComponent(bAceptar)
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
+ Tema9Practica1.darAlta(tfNombre.getText(),tfEdad.getText(),tfProf.getText(),tfTel.getText());
+    }//GEN-LAST:event_bAceptarActionPerformed
+
+    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
+Tema9Practica1.salir();        // TODO add your handling code here:
+    }//GEN-LAST:event_bSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,18 +227,18 @@ public class VentanaPersona extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton bAceptar;
+    private javax.swing.JButton bAdelante;
+    private javax.swing.JButton bAtras;
+    private javax.swing.JButton bSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField tfEdad;
+    private javax.swing.JTextField tfNombre;
+    private javax.swing.JTextField tfProf;
+    private javax.swing.JTextField tfTel;
     // End of variables declaration//GEN-END:variables
 }
