@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import javax.swing.JOptionPane;
 import tema9practica1.Tema9Practica1;
 
 /**
@@ -33,30 +34,27 @@ public class VentanaPersona extends javax.swing.JFrame {
                     bAceptar.setEnabled(true);
                     break;
                 }
-            case 2:
-                {
-                    tfNombre.setEnabled(false);
-                    tfEdad.setEnabled(false);
-                    tfProf.setEnabled(false);
-                    tfTel.setEnabled(false);
-                    bAtras.setEnabled(false);
-                    bAdelante.setEnabled(false);
-                    bAceptar.setEnabled(false);
-                    break;            
-                }
-            case 3:
-                {
-                    tfNombre.setEnabled(false);
-                    tfEdad.setEnabled(false);
-                    tfProf.setEnabled(false);
-                    tfTel.setEnabled(false);
-                    bAtras.setEnabled(true);
-                    bAdelante.setEnabled(true);
-                    bAceptar.setEnabled(false);
-                    break;
-                }
         }
     }
+    public VentanaPersona(String n, int e,String p, int t) {
+        initComponents();
+         this.setLocationRelativeTo(null);
+        // Utilizamos la ventana para mostrar datos.
+        bAceptar.setVisible(false);
+        tfNombre.setEditable(false);
+        tfEdad.setEditable(false);
+        tfProf.setEditable(false);
+        tfTel.setEditable(false);
+        llenar(n,e,p,t);        
+    }
+    public void llenar(String n, Integer e,String p, int t)
+     {
+         String ts=t+"";
+         tfNombre.setText(n);
+         tfEdad.setText(e.toString());
+         tfProf.setText(p);
+         tfTel.setText(ts);
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -95,8 +93,18 @@ public class VentanaPersona extends javax.swing.JFrame {
         jLabel5.setText("Telefono");
 
         bAtras.setText("<");
+        bAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAtrasActionPerformed(evt);
+            }
+        });
 
         bAdelante.setText(">");
+        bAdelante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAdelanteActionPerformed(evt);
+            }
+        });
 
         bSalir.setText("Salir");
         bSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -185,11 +193,46 @@ public class VentanaPersona extends javax.swing.JFrame {
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
  Tema9Practica1.darAlta(tfNombre.getText(),tfEdad.getText(),tfProf.getText(),tfTel.getText());
+ JOptionPane.showMessageDialog(this,"dado de alta correctamente");
+ ponerBlanco();
     }//GEN-LAST:event_bAceptarActionPerformed
-
+public void ponerBlanco()
+{
+    tfNombre.setText("");
+    tfEdad.setText("");
+    tfProf.setText("");
+    tfTel.setText("");    
+}
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
 Tema9Practica1.salir();        // TODO add your handling code here:
     }//GEN-LAST:event_bSalirActionPerformed
+
+    private void bAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtrasActionPerformed
+if (Tema9Practica1.isAnterior())
+        {
+            // objeto
+            String n=Tema9Practica1.getAnteriorNombre();
+            Integer e = Tema9Practica1.getEdad();
+            String p = Tema9Practica1.getProfesion();
+            int t=Tema9Practica1.getTelefono();
+            llenar(n,e,p,t);
+        }
+        else
+            JOptionPane.showMessageDialog(this, " No hay más personas");
+    }//GEN-LAST:event_bAtrasActionPerformed
+
+    private void bAdelanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAdelanteActionPerformed
+if (Tema9Practica1.isSiguiente())
+        {
+            String n=Tema9Practica1.getSiguienteNombre();
+            Integer e = Tema9Practica1.getEdad();
+            String p = Tema9Practica1.getProfesion();
+            int t=Tema9Practica1.getTelefono();
+            llenar(n,e,p,t);
+        }
+        else
+            JOptionPane.showMessageDialog(this, " No hay más personas");
+    }//GEN-LAST:event_bAdelanteActionPerformed
 
     /**
      * @param args the command line arguments

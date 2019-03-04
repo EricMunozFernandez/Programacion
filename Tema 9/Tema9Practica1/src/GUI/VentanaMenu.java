@@ -7,7 +7,7 @@ package GUI;
 
 import javax.swing.JOptionPane;
 import tema9practica1.Tema9Practica1;
-import GUI.VentanaPersona;
+
 /**
  *
  * @author 1gdaw07
@@ -17,7 +17,7 @@ public class VentanaMenu extends javax.swing.JFrame {
     /**
      * Creates new form VentanaMenu
      */
-    private VentanaPersona vp;
+    
     public VentanaMenu() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -63,6 +63,11 @@ public class VentanaMenu extends javax.swing.JFrame {
         tfOpcion.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tfOpcionFocusLost(evt);
+            }
+        });
+        tfOpcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfOpcionActionPerformed(evt);
             }
         });
 
@@ -112,30 +117,29 @@ public class VentanaMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tfOpcionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfOpcionFocusLost
+
+    }//GEN-LAST:event_tfOpcionFocusLost
+
+    private void tfOpcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfOpcionActionPerformed
 switch(Integer.parseInt(tfOpcion.getText()))
 {
     case 1:
         {
-            this.dispose();
-            vp= new VentanaPersona();
+                        
             Tema9Practica1.setOpcion(Integer.parseInt(tfOpcion.getText()));
-            vp.setVisible(true);
+            Tema9Practica1.cambioVentana();
+            
             break;
         }
     case 2:
-        {
-            this.dispose();
+        {            
             String nom=JOptionPane.showInputDialog("introduce nombre");
-            Tema9Practica1.buscarNombre(nom);
-            vp= new VentanaPersona();
-            vp.setVisible(true);
+            Tema9Practica1.buscarPersona(nom);            
             break;            
         }
     case 3:
         {
-            this.dispose();
-            vp= new VentanaPersona();
-            vp.setVisible(true);
+            Tema9Practica1.obtenerDatos();
             break;
         }
     case 4:
@@ -149,7 +153,7 @@ switch(Integer.parseInt(tfOpcion.getText()))
         }
         
 }
-    }//GEN-LAST:event_tfOpcionFocusLost
+    }//GEN-LAST:event_tfOpcionActionPerformed
 
     /**
      * @param args the command line arguments
