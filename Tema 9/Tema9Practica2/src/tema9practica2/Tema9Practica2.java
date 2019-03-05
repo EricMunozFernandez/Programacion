@@ -7,7 +7,8 @@ package tema9practica2;
 
 import GUI.*;
 import UML.*;
-import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 
 /**
@@ -19,26 +20,26 @@ public class Tema9Practica2 {
     /**
      * @param args the command line arguments
      */
-    private static BaseDatos bd;
-    private static Connection con;
     private static ProyectoDAO oProyectoDAO;
     private static Ventana vm;
+    private static Vproyecto vp;
+    private static Proyecto pr;
     public static void main(String[] args) {
         // TODO code application logic here
-        bd= new BaseDatos();
-        con= bd.conectar();
-        if(con==null)
-        {
-            System.out.println("Problemas con la base de datos");
-            System.exit(-1);
-        }
-        oProyectoDAO= new ProyectoDAO(con);
         vm= new Ventana();
         vm.setVisible(true);
     }
     public static void cambiarVentana()
     {
-        vProyecto= new Vproyecto();
+        vp= new Vproyecto(vm,true);        
+        vp.setLocationRelativeTo(vm);
+        vp.setVisible(true);
+    }
+    public static void darAlta(String nombre, String lugar, LocalDate fecha, LocalTime horaI, LocalTime horaF, int aforo)
+    {
+       oProyectoDAO= new ProyectoDAO();
+       pr= new Proyecto(nombre,lugar,fecha,horaI,horaF, aforo);
+       oProyectoDAO.darAlta(pr);
     }
     
 }

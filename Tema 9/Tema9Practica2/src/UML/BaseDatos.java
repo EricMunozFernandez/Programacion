@@ -14,13 +14,17 @@ import java.sql.DriverManager;
  */
 
 public class BaseDatos {
+    
     private Connection con;
-    public Connection conectar()
+    private BaseDatos bd;
+   // private ProyectoDAO oProyectoDAO;
+    
+    public Connection conectar() 
     {
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
-            String url="\"jdbc:mysql://localhost:3307/\"+\"practica2\"";
+            String url="jdbc:mysql://localhost:3307/"+"practica2";
             String usuario="root";
             String pass="usbw";
             con=DriverManager.getConnection(url,usuario,pass);
@@ -28,18 +32,25 @@ public class BaseDatos {
         }
         catch(Exception e)
         {
+            System.out.println(e.getClass()+e.getMessage());
             return null;
         }
+    } 
+    
+    
+    public void cerrar()throws Exception
+    {        
+        con.close();
     }
-    public void cerrar()
+    
+    public Connection abrirBD()throws Exception
     {
-        try
+        con = conectar();
+        if(con==null)
         {
-            con.close();
-        }
-        catch(Exception e)
-        {
-            
-        }
-    }
+            System.out.println("Problemas con la base de datos");
+            System.exit(-1);
+        }        
+        return con;
+    } 
 }
