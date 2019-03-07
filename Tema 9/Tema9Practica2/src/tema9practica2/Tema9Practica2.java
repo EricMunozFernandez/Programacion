@@ -41,5 +41,21 @@ public class Tema9Practica2 {
        pr= new Proyecto(nombre,lugar,fecha,horaI,horaF, aforo);
        oProyectoDAO.darAlta(pr);
     }
+    public static void cancelarEvento(String nombre, String opcion)
+            
+    {
+        oProyectoDAO.consultarProyecto(nombre, opcion);
+    }
+    public static void editarEvento(String nombre, String opcion)
+    {
+        Proyecto proyecto=oProyectoDAO.consultarProyecto(nombre, opcion);
+        enviarAVentana(proyecto);
+    }
+    public static void enviarAVentana(Proyecto p)
+    {
+        vp= new Vproyecto(vm,true,p.getNombre(),p.getLugar(),p.getFecha(),p.getHoraInicio(),p.getHoraFin(),p.getNumeroPersonas());        
+        vp.setLocationRelativeTo(vm);
+        vp.setVisible(true);
+    }
     
 }

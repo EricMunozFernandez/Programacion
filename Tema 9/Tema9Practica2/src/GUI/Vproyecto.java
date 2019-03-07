@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import tema9practica2.Tema9Practica2;
 
 /**
@@ -19,6 +21,16 @@ public class Vproyecto extends javax.swing.JDialog {
     public Vproyecto(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+
+    public Vproyecto(Ventana vm, boolean b, String nombre, String lugar, LocalDate fecha, LocalTime horaInicio, LocalTime horaFin, int numeroPersonas) {
+        tfNombre.setText(nombre);
+        tfNombre.setEditable(false);
+        tfLugar.setText(lugar);
+        dpFecha.setDate(fecha);
+        tpHoraI.setTime(horaInicio);
+        tpHoraF.setTime(horaFin);
+        tfAforo.setText(numeroPersonas+"");        
     }
 
     /**

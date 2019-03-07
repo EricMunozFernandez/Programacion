@@ -8,6 +8,7 @@ package UML;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.ZoneId;
 
 /**
  *
@@ -50,6 +51,55 @@ public class ProyectoDAO {
             System.out.println(e.getClass()+e.getMessage());
         }
     }
+    public Proyecto consultarProyecto(String nombre, String opcion)
+   {
+        try
+        { 
+            bd= new BaseDatos();
+             con = bd.abrirBD();
+
+            Proyecto proyecto=null;
+
+            PreparedStatement consulta = con.prepareStatement("SELECT * FROM proyecto where nombre = ? ");
+            consulta.setString(1, nombre);
+            ResultSet res = consulta.executeQuery();
+
+            if(res.next())
+            {
+                if(opcion.compareToIgnoreCase("borrar")==0)
+                {
+                PreparedStatement borrar = con.prepareStatement("DELETE FROM proyecto where nombre = ? ");
+                 consulta.setString(1, nombre);
+                }  
+                if(opcion.compareToIgnoreCase("editar")==0)
+                {
+                    LocalDate date = res.getDate("fecha").toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                    proyecto= new Proyecto();
+                    proyecto.setNombre(res.getString("nombre"));
+                    proyecto.setLugar(res.getString("lugar"));
+                    proyecto.setFecha(date);
+                    proyecto.setHoraInicio(toLocalTime(res.getTime("horaInicio")));
+                    proyecto.setHoraFin(toLocalTime(res.getTime("horaFin")));
+                    proyecto.setNumeroPersonas(res.getInt("aforo"));                    
+                }
+            }
+            else
+                 throw new Exception ("proyecto no encontrado");
+
+
+            res.close();
+            consulta.close();
+            bd.cerrar();
+
+            return proyecto;
+
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getClass()+e.getMessage());
+            return null;
+        }
+    }
     public static java.sql.Date conversionDate(LocalDate fecha)
     {
         return java.sql.Date.valueOf(fecha);
@@ -62,4 +112,7 @@ public class ProyectoDAO {
     {
         return java.sql.Time.valueOf(horaFin);
     }
+    public static LocalTime toLocalTime(java.sql.Time time) {
+    return time.toLocalTime();
+  }
 }

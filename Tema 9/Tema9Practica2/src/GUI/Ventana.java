@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import javax.swing.JOptionPane;
 import tema9practica2.Tema9Practica2;
 
 /**
@@ -12,6 +13,8 @@ import tema9practica2.Tema9Practica2;
  * @author 1gdaw07
  */
 public class Ventana extends javax.swing.JFrame {
+
+    private String opcion;
 
     /**
      * Creates new form Ventana
@@ -32,10 +35,14 @@ public class Ventana extends javax.swing.JFrame {
 
         jToolBar1 = new javax.swing.JToolBar();
         bGuardar = new javax.swing.JButton();
+        bCancelar = new javax.swing.JButton();
+        bEditar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmGuardar = new javax.swing.JMenuItem();
+        jmCancelar = new javax.swing.JMenuItem();
+        jmEditar = new javax.swing.JMenuItem();
         mSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,6 +59,28 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(bGuardar);
+
+        bCancelar.setText("Cancelar");
+        bCancelar.setFocusable(false);
+        bCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bCancelar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        bCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCancelarActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(bCancelar);
+
+        bEditar.setText("Editar");
+        bEditar.setFocusable(false);
+        bEditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bEditar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        bEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEditarActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(bEditar);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setText("Eventos fistas");
@@ -70,6 +99,22 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jmGuardar);
+
+        jmCancelar.setText("Cancelar");
+        jmCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmCancelarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmCancelar);
+
+        jmEditar.setText("Editar");
+        jmEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmEditarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmEditar);
 
         jMenuBar1.add(jMenu1);
 
@@ -112,6 +157,27 @@ public class Ventana extends javax.swing.JFrame {
     jmGuardar.doClick();
     }//GEN-LAST:event_bGuardarActionPerformed
 
+    private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
+    jmCancelar.doClick();
+    }//GEN-LAST:event_bCancelarActionPerformed
+
+    private void jmCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCancelarActionPerformed
+    String nombre=JOptionPane.showInputDialog("nombra el evento");
+    opcion="borrar";
+    Tema9Practica2.cancelarEvento(nombre, opcion);
+    JOptionPane.showMessageDialog(this, "evento eliminado");
+    }//GEN-LAST:event_jmCancelarActionPerformed
+
+    private void bEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarActionPerformed
+    jmEditar.doClick();
+    }//GEN-LAST:event_bEditarActionPerformed
+
+    private void jmEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEditarActionPerformed
+    String nombre=JOptionPane.showInputDialog("nombra el evento");
+    opcion="editar";
+    Tema9Practica2.editarEvento(nombre, opcion);
+    }//GEN-LAST:event_jmEditarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -148,11 +214,15 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bCancelar;
+    private javax.swing.JButton bEditar;
     private javax.swing.JButton bGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JMenuItem jmCancelar;
+    private javax.swing.JMenuItem jmEditar;
     private javax.swing.JMenuItem jmGuardar;
     private javax.swing.JMenu mSalir;
     // End of variables declaration//GEN-END:variables
