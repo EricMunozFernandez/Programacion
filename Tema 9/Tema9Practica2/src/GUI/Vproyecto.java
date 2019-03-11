@@ -7,6 +7,7 @@ package GUI;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import javax.swing.JOptionPane;
 import tema9practica2.Tema9Practica2;
 
 /**
@@ -14,6 +15,8 @@ import tema9practica2.Tema9Practica2;
  * @author 1gdaw07
  */
 public class Vproyecto extends javax.swing.JDialog {
+
+    private String opcion;
 
     /**
      * Creates new form Vproyecto
@@ -30,7 +33,8 @@ public class Vproyecto extends javax.swing.JDialog {
         dpFecha.setDate(fecha);
         tpHoraI.setTime(horaInicio);
         tpHoraF.setTime(horaFin);
-        tfAforo.setText(numeroPersonas+"");        
+        tfAforo.setText(numeroPersonas+"");
+        opcion="modificar";        
     }
 
     /**
@@ -153,7 +157,16 @@ public class Vproyecto extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bDarAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDarAltaActionPerformed
-    Tema9Practica2.darAlta(tfNombre.getText(),tfLugar.getText(),dpFecha.getDate(),tpHoraI.getTime(),tpHoraF.getTime(),Integer.parseInt(tfAforo.getText()));
+            if(opcion.compareToIgnoreCase("modificar")!=0)
+            {
+                Tema9Practica2.modificar(tfNombre.getText(),tfLugar.getText(),dpFecha.getDate(),tpHoraI.getTime(),tpHoraF.getTime(),Integer.parseInt(tfAforo.getText()));
+                JOptionPane.showMessageDialog(this, "modificado correctamente");
+            }
+            else
+            {
+                Tema9Practica2.darAlta(tfNombre.getText(),tfLugar.getText(),dpFecha.getDate(),tpHoraI.getTime(),tpHoraF.getTime(),Integer.parseInt(tfAforo.getText()));
+                JOptionPane.showMessageDialog(this, "dado de alta correctamente");
+            }
     }//GEN-LAST:event_bDarAltaActionPerformed
 
     /**

@@ -56,7 +56,7 @@ public class ProyectoDAO {
         try
         { 
             bd= new BaseDatos();
-             con = bd.abrirBD();
+            con = bd.abrirBD();
 
             Proyecto proyecto=null;
 
@@ -98,6 +98,32 @@ public class ProyectoDAO {
         {
             System.out.println(e.getClass()+e.getMessage());
             return null;
+        }
+    }
+    public void modificar(Proyecto pr)
+    {
+       try
+        {
+            bd= new BaseDatos();
+            con = bd.abrirBD();
+            
+            String plantilla ="UPDATE proyecto SET LUGAR=?,FECHA=?,HORA_INICIO=?,HORA_FIN=?,NUMERO_PERSONAS=? WHERE NOMBRE=?;";
+            PreparedStatement ps=con.prepareStatement(plantilla);            
+            ps.setString(1,pr.getLugar());
+            ps.setDate(2,conversionDate(pr.getFecha()));
+            ps.setTime(3,conversionTimeInicio(pr.getHoraInicio()));
+            ps.setTime(4,conversionTimeFin(pr.getHoraFin()));
+            ps.setInt(5,pr.getNumeroPersonas());
+            ps.setString(6,pr.getNombre());
+           
+            int n=ps.executeUpdate();
+            
+            bd.cerrar();
+            
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getClass()+e.getMessage());
         }
     }
     public static java.sql.Date conversionDate(LocalDate fecha)
