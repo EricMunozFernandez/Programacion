@@ -60,7 +60,7 @@ public class ProyectoDAO {
 
             Proyecto proyecto=null;
 
-            PreparedStatement consulta = con.prepareStatement("SELECT * FROM proyecto where nombre = ? ");
+            PreparedStatement consulta = con.prepareStatement("SELECT * FROM proyecto WHERE UPPER(NOMBRE)= ? ;");
             consulta.setString(1, nombre);
             ResultSet res = consulta.executeQuery();
 
@@ -68,19 +68,19 @@ public class ProyectoDAO {
             {
                 if(opcion.compareToIgnoreCase("borrar")==0)
                 {
-                PreparedStatement borrar = con.prepareStatement("DELETE FROM proyecto where nombre = ? ");
-                 consulta.setString(1, nombre);
+                PreparedStatement borrar = con.prepareStatement("DELETE FROM proyecto WHERE UPPER(NOMBRE)= ? ;");
+                borrar.setString(1, nombre);
                 }  
                 if(opcion.compareToIgnoreCase("editar")==0)
                 {
-                    LocalDate date = res.getDate("fecha").toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                    LocalDate date = res.getDate("fecha").toInstant().atZone(ZoneId.systemDefault()).toLocalDate(); //ERROR AQUI DE EDITAR
                     proyecto= new Proyecto();
-                    proyecto.setNombre(res.getString("nombre"));
-                    proyecto.setLugar(res.getString("lugar"));
+                    proyecto.setNombre(res.getString("NOMBRE"));
+                    proyecto.setLugar(res.getString("LUGAR"));
                     proyecto.setFecha(date);
-                    proyecto.setHoraInicio(toLocalTime(res.getTime("horaInicio")));
-                    proyecto.setHoraFin(toLocalTime(res.getTime("horaFin")));
-                    proyecto.setNumeroPersonas(res.getInt("aforo"));                    
+                    proyecto.setHoraInicio(toLocalTime(res.getTime("HORA_INICIO")));
+                    proyecto.setHoraFin(toLocalTime(res.getTime("HORA_FIN")));
+                    proyecto.setNumeroPersonas(res.getInt("NUMERO_PERSONAS"));                    
                 }
             }
             else
@@ -107,7 +107,7 @@ public class ProyectoDAO {
             bd= new BaseDatos();
             con = bd.abrirBD();
             
-            String plantilla ="UPDATE proyecto SET LUGAR=?,FECHA=?,HORA_INICIO=?,HORA_FIN=?,NUMERO_PERSONAS=? WHERE NOMBRE=?;";
+            String plantilla ="UPDATE proyecto SET LUGAR=?,FECHA=?,HORA_INICIO=?,HORA_FIN=?,NUMERO_PERSONAS=? WHERE UPPER(NOMBRE)=?;";
             PreparedStatement ps=con.prepareStatement(plantilla);            
             ps.setString(1,pr.getLugar());
             ps.setDate(2,conversionDate(pr.getFecha()));
