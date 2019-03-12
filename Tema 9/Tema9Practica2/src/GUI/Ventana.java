@@ -163,8 +163,7 @@ public class Ventana extends javax.swing.JFrame {
 
     private void jmCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCancelarActionPerformed
     String nombre=JOptionPane.showInputDialog("nombra el evento");
-    opcion="borrar";
-    Tema9Practica2.cancelarEvento(nombre, opcion);
+    Tema9Practica2.cancelarEvento(nombre);
     JOptionPane.showMessageDialog(this, "evento eliminado");
     }//GEN-LAST:event_jmCancelarActionPerformed
 

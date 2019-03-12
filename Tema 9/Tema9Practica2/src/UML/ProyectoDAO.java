@@ -66,22 +66,15 @@ public class ProyectoDAO {
 
             if(res.next())
             {
-                if(opcion.compareToIgnoreCase("borrar")==0)
-                {
-                PreparedStatement borrar = con.prepareStatement("DELETE FROM proyecto WHERE UPPER(NOMBRE)= ? ;");
-                borrar.setString(1, nombre);
-                }  
-                if(opcion.compareToIgnoreCase("editar")==0)
-                {
-                    LocalDate date = res.getDate("fecha").toInstant().atZone(ZoneId.systemDefault()).toLocalDate(); //ERROR AQUI DE EDITAR
-                    proyecto= new Proyecto();
-                    proyecto.setNombre(res.getString("NOMBRE"));
-                    proyecto.setLugar(res.getString("LUGAR"));
-                    proyecto.setFecha(date);
-                    proyecto.setHoraInicio(toLocalTime(res.getTime("HORA_INICIO")));
-                    proyecto.setHoraFin(toLocalTime(res.getTime("HORA_FIN")));
-                    proyecto.setNumeroPersonas(res.getInt("NUMERO_PERSONAS"));                    
-                }
+                LocalDate date = res.getDate("fecha").toInstant().atZone(ZoneId.systemDefault()).toLocalDate(); //ERROR AQUI DE EDITAR
+                proyecto= new Proyecto();
+                proyecto.setNombre(res.getString("NOMBRE"));
+                proyecto.setLugar(res.getString("LUGAR"));
+                proyecto.setFecha(date);
+                proyecto.setHoraInicio(toLocalTime(res.getTime("HORA_INICIO")));
+                proyecto.setHoraFin(toLocalTime(res.getTime("HORA_FIN")));
+                proyecto.setNumeroPersonas(res.getInt("NUMERO_PERSONAS"));                   
+                
             }
             else
                  throw new Exception ("proyecto no encontrado");
@@ -99,6 +92,23 @@ public class ProyectoDAO {
             System.out.println(e.getClass()+e.getMessage());
             return null;
         }
+    }
+    public void borrarProyecto(String nombre)
+    {
+        try
+        {
+            bd= new BaseDatos();
+            con = bd.abrirBD();
+            try (PreparedStatement borrar = con.prepareStatement("DELETE FROM proyecto WHERE UPPER(NOMBRE)= ? ;")) {
+                borrar.setString(1, nombre);
+            }
+            bd.cerrar();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getClass()+e.getMessage());            
+        }
+        
     }
     public void modificar(Proyecto pr)
     {

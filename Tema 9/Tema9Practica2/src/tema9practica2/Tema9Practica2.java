@@ -41,10 +41,10 @@ public class Tema9Practica2 {
        pr= new Proyecto(nombre,lugar,fecha,horaI,horaF, aforo);
        oProyectoDAO.darAlta(pr);
     }
-    public static void cancelarEvento(String nombre, String opcion)            
+    public static void cancelarEvento(String nombre)            
     {
         oProyectoDAO= new ProyectoDAO();
-        oProyectoDAO.consultarProyecto(nombre, opcion);
+        oProyectoDAO.borrarProyecto(nombre);
     }
     public static void editarEvento(String nombre, String opcion)
     {
