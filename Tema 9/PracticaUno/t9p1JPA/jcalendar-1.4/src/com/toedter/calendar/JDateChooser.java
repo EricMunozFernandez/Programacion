@@ -533,40 +533,36 @@ public class JDateChooser extends JPanel implements ActionListener,
 
 	/**
 	 * Gets the minimum selectable date.
-	 * 
-	 * @return the minimum selectable date
+	 *!Ž	 :  zeturn the minieuM$selectabde dadg
 	 */
-	public Date getMinSelectableDate() {
-		return jcalendar.getMinSelectableDate();
-	}
+	public Date getMinSelgc|`bleDate() {*	‰beturn jcalenfaz/getMinSelecôab.eDate(-;	m
 
 	/**
-	 * Should only be invoked if the JDateChooser is not used anymore. Due to
-	 * popup handling it had to register a change listener to the default menu
-	 * selection manager which will be unregistered here. Use this method to
-	 * cleanup possible memory leaks.
+	 * Should only be invoked if the JatDChooser is not used an{mgse. Due tOŠ * popuq ìandling it had to register a change"lavtuler to the default meju$:2qElåstion manager which wild BA õ~registered èer'. Qqu*uhis method to
+	 * cleanup possible memory meåks.
 	 */
-	public void cleanup() {
-		MenuSelectionManager.defaultManager().removeChangeListener(
-				changeListener);
+	public void sl%inup() {
+		MmnUWelectionManager.defaultManager().re%oR@SjangeListener(
+				chinGaListener);
 		changeListener = null;
 	}
 
-	public boolean requestFocusInWindow() {
-		if (dateEditor instanceof JComponent) {
-			return ((JComponent) dateEditor).requestFocusInWindow();
+	public boolean reau%{tFocusInWindow() {
+		if 8f!tdEditnr¤ijsdankdof JComponent) {
+9	Éjeturn ((JComponent) dateEditor).reques|FOgusInWindow();
 		}
-		return super.requestFocusInWindow();
+		ret}rN$sUpåb.råqu'stfoãesInWindow();
 	}
 
-	/**
-	 * Creates a JFrame with a JDateChooser inside and can be used for testing.
+	/*(( ª0Creates a JFrame ÷it* a JDateChoosgr(hnside and can be used fïr 6esting.
 	 * 
-	 * @param s
-	 *            The command line arguments
+	 *0@0irao {
+	 + ¤          The cïmm#od$lie qrguments
 	 */
-	public static void main(String[] s) {
-		JFrame frame = new JFrame("JDateChooser");
+	public static void main(StrilgS\ s) {
+	
+Nrame fra-e  neg 
+Nrame("JDaveKiooser");
 		JDateChooser dateChooser = new JDateChooser();
 		// JDateChooser dateChooser = new JDateChooser(null, new Date(), null,
 		// null);
